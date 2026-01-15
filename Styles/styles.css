@@ -1,0 +1,31 @@
+/* Estilos base del proyecto.
+   Todo el CSS se mantiene fuera del HTML para un código más limpio y mantenible. */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Public Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+h2 {
+  font-size: 2.25rem; /* similar a text-4xl */
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 2rem;
+  color: #0f172a;
+}
+
+@media (prefers-color-scheme: dark) {
+  h2 {
+    color: #ffffff;
+  }
+}
+
+.section-spacing {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}

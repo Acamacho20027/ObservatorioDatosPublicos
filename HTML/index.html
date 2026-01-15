@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Observatorio de Datos Públicos – Costa Rica</title>
+
+    <!-- Tailwind CSS (para maquetación rápida y profesional) -->
+    <!-- Configuración propia de Tailwind en archivo externo -->
+    <script src="../Js/tailwind-config.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Estilos personalizados (sin CSS embebido en el HTML) -->
+    <link rel="stylesheet" href="../Styles/styles.css" />
+
+    <!-- Chart.js para visualización de datos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased"
+  >
+    <header
+      class="sticky top-0 z-50 w-full border-b border-border-gray bg-white/95 dark:bg-background-dark/95 backdrop-blur supports-[backdrop-filter]:bg-white/60"
+    >
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="text-primary">
+              <span class="material-symbols-outlined text-3xl">analytics</span>
+            </div>
+            <span
+              class="text-lg font-bold tracking-tight text-slate-900 dark:text-white uppercase"
+              >Observatorio <span class="text-primary">CR</span></span
+            >
+          </div>
+          <nav class="hidden md:flex items-center gap-8">
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+              href="#modulos"
+              >Análisis</a
+            >
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+              href="#metodologia"
+              >Metodología</a
+            >
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+              href="#sobre"
+              >Sobre el Proyecto</a
+            >
+            <a
+              class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg text-sm font-bold transition-all shadow-sm"
+              href="#modulos"
+            >
+              Explorar análisis
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero / Inicio -->
+      <section
+        class="relative overflow-hidden bg-white dark:bg-background-dark py-32 sm:py-40 border-b border-border-gray"
+      >
+        <div
+          class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.blue.100),white)] dark:bg-[radial-gradient(45rem_50rem_at_top,theme(colors.slate.800),theme(colors.background-dark))] opacity-25"
+        ></div>
+        <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+          <div class="mx-auto max-w-4xl">
+            <h1
+              class="text-5xl font-black tracking-tight text-slate-900 dark:text-white sm:text-7xl mb-8 leading-[1.1]"
+            >
+              Observatorio de Datos Públicos – Costa Rica
+            </h1>
+            <p
+              class="text-xl leading-relaxed text-slate-600 dark:text-slate-400 font-light mb-12 max-w-2xl mx-auto"
+            >
+              Centralizamos y procesamos información oficial de Costa Rica para
+              ofrecer una visión clara del estado del país en educación, salud e
+              infraestructura basada en evidencia.
+            </p>
+            <div class="flex items-center justify-center gap-x-8">
+              <a
+                class="rounded-lg bg-primary px-8 py-4 text-base font-bold text-white shadow-md hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all"
+                href="#modulos"
+              >
+                Explorar conjuntos de datos
+              </a>
+              <a
+                class="text-sm font-bold leading-6 text-slate-900 dark:text-white hover:text-primary transition-colors"
+                href="#metodologia"
+                >Ver metodología <span aria-hidden="true">→</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Acerca del observatorio -->
+      <section
+        id="sobre"
+        class="section-spacing bg-surface-gray dark:bg-background-dark/50"
+      >
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+            <div>
+              <h2>Acerca del Observatorio</h2>
+              <p
+                class="text-lg leading-relaxed text-slate-600 dark:text-slate-400 mb-8"
+              >
+                El acceso a datos públicos es fundamental para el desarrollo
+                democrático. Este observatorio centraliza y procesa información
+                oficial de Costa Rica para ofrecer una visión clara del estado
+                del país con rigor técnico.
+              </p>
+              <p
+                class="text-lg leading-relaxed text-slate-600 dark:text-slate-400"
+              >
+                Nuestra misión es democratizar el acceso a la información
+                técnica, permitiendo que tanto tomadores de decisiones como
+                ciudadanía en general puedan monitorear el progreso nacional sin
+                sesgos políticos.
+              </p>
+            </div>
+            <div
+              class="bg-white dark:bg-slate-800 p-10 rounded-xl shadow-soft border border-border-gray"
+            >
+              <div class="flex items-start gap-5 mb-10">
+                <span
+                  class="material-symbols-outlined text-primary p-3 bg-primary/10 rounded-lg"
+                  >verified</span
+                >
+                <div>
+                  <h4
+                    class="font-bold text-lg text-slate-900 dark:text-white mb-1"
+                  >
+                    Fuentes Verificadas
+                  </h4>
+                  <p class="text-sm text-slate-500 leading-relaxed">
+                    Datos extraídos de repositorios y fuentes públicas
+                    institucionales (INEC, MEP, CCSS, BCCR, entre otros).
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-5 mb-10">
+                <span
+                  class="material-symbols-outlined text-accent-green p-3 bg-accent-green/10 rounded-lg"
+                  >update</span
+                >
+                <div>
+                  <h4
+                    class="font-bold text-lg text-slate-900 dark:text-white mb-1"
+                  >
+                    Actualización Periódica
+                  </h4>
+                  <p class="text-sm text-slate-500 leading-relaxed">
+                    Diseño preparado para incorporar nuevas versiones de
+                    indicadores de forma incremental y reproducible.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-5">
+                <span
+                  class="material-symbols-outlined text-amber-500 p-3 bg-amber-500/10 rounded-lg"
+                  >code</span
+                >
+                <div>
+                  <h4
+                    class="font-bold text-lg text-slate-900 dark:text-white mb-1"
+                  >
+                    Código Abierto
+                  </h4>
+                  <p class="text-sm text-slate-500 leading-relaxed">
+                    Metodologías de procesamiento y visualización auditables en
+                    GitHub, orientadas a la transparencia.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Módulos de análisis -->
+      <section
+        id="modulos"
+        class="section-spacing bg-white dark:bg-background-dark"
+      >
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="mb-20">
+            <h2>Módulos de Análisis</h2>
+            <p class="text-lg text-slate-500 max-w-2xl">
+              Explore las áreas críticas del desarrollo nacional mediante
+              indicadores clave procesados bajo criterios técnicos.
+            </p>
+          </div>
+
+          <!-- Tarjetas resumen de módulos -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+            <a
+              class="group relative bg-white dark:bg-slate-800 p-8 rounded-[8px] border border-border-gray shadow-soft hover:border-primary transition-all text-left w-full block"
+              href="#modulo-educacion"
+            >
+              <div class="mb-8 inline-flex p-3 rounded-lg text-primary">
+                <span class="material-symbols-outlined text-4xl">school</span>
+              </div>
+              <h3
+                class="text-2xl font-bold text-slate-900 dark:text-white mb-4"
+              >
+                Educación
+              </h3>
+              <p
+                class="text-slate-600 dark:text-slate-400 text-base mb-8 leading-relaxed"
+              >
+                Matrícula, tasas de deserción y rendimiento en pruebas
+                estandarizadas por región educativa.
+              </p>
+              <div
+                class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest"
+              >
+                <span>Ver indicadores</span>
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                >
+              </div>
+            </a>
+
+            <a
+              class="group relative bg-white dark:bg-slate-800 p-8 rounded-[8px] border border-border-gray shadow-soft hover:border-primary transition-all text-left w-full block"
+              href="#modulo-salud"
+            >
+              <div class="mb-8 inline-flex p-3 rounded-lg text-primary">
+                <span class="material-symbols-outlined text-4xl"
+                  >health_and_safety</span
+                >
+              </div>
+              <h3
+                class="text-2xl font-bold text-slate-900 dark:text-white mb-4"
+              >
+                Salud
+              </h3>
+              <p
+                class="text-slate-600 dark:text-slate-400 text-base mb-8 leading-relaxed"
+              >
+                Capacidad hospitalaria, tiempos de espera y cobertura de
+                vacunación por provincia.
+              </p>
+              <div
+                class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest"
+              >
+                <span>Ver indicadores</span>
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                >
+              </div>
+            </a>
+
+            <a
+              class="group relative bg-white dark:bg-slate-800 p-8 rounded-[8px] border border-border-gray shadow-soft hover:border-primary transition-all text-left w-full block"
+              href="#modulo-infraestructura"
+            >
+              <div class="mb-8 inline-flex p-3 rounded-lg text-primary">
+                <span class="material-symbols-outlined text-4xl"
+                  >foundation</span
+                >
+              </div>
+              <h3
+                class="text-2xl font-bold text-slate-900 dark:text-white mb-4"
+              >
+                Infraestructura
+              </h3>
+              <p
+                class="text-slate-600 dark:text-slate-400 text-base mb-8 leading-relaxed"
+              >
+                Estado de la red vial, inversión en obra pública y acceso a
+                telecomunicaciones.
+              </p>
+              <div
+                class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest"
+              >
+                <span>Ver indicadores</span>
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                >
+              </div>
+            </a>
+          </div>
+
+          <!-- Sección detallada de módulos con filtros y gráficos -->
+          <div class="space-y-24">
+            <!-- Módulo Educación -->
+            <section
+              id="modulo-educacion"
+              class="bg-surface-gray dark:bg-slate-900/40 rounded-xl p-8 md:p-10 border border-border-gray"
+            >
+              <div
+                class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8"
+              >
+                <div>
+                  <h3
+                    class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-2"
+                  >
+                    Educación
+                  </h3>
+                  <p class="text-sm text-slate-500 max-w-xl">
+                    Indicadores simplificados de matrícula y deserción por año
+                    y provincia, basados en datos de ejemplo inspirados en
+                    registros del MEP.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-4">
+                  <div class="flex flex-col gap-2">
+                    <label
+                      class="text-[11px] uppercase font-bold text-slate-500 tracking-wider"
+                      for="edu-filter-year"
+                      >Año</label
+                    >
+                    <select
+                      id="edu-filter-year"
+                      class="rounded-lg border-border-gray text-sm py-2 px-4 bg-white dark:bg-slate-800 focus:ring-primary min-w-[120px]"
+                    >
+                      <option value="all">Todos</option>
+                    </select>
+                  </div>
+                  <div class="flex flex-col gap-2">
+                    <label
+                      class="text-[11px] uppercase font-bold text-slate-500 tracking-wider"
+                      for="edu-filter-provincia"
+                      >Provincia</label
+                    >
+                    <select
+                      id="edu-filter-provincia"
+                      class="rounded-lg border-border-gray text-sm py-2 px-4 bg-white dark:bg-slate-800 focus:ring-primary min-w-[160px]"
+                    >
+                      <option value="all">Todas</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div
+                  class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-border-gray shadow-soft"
+                >
+                  <h4
+                    class="text-base font-bold text-slate-800 dark:text-slate-100 mb-4"
+                  >
+                    Matrícula Estimada por Provincia
+                  </h4>
+                  <canvas id="chart-edu-matricula" height="220"></canvas>
+                </div>
+                <div
+                  class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-border-gray shadow-soft"
+                >
+                  <h4
+                    class="text-base font-bold text-slate-800 dark:text-slate-100 mb-4"
+                  >
+                    Tasa de Deserción (%) por Año
+                  </h4>
+                  <canvas id="chart-edu-desercion" height="220"></canvas>
+                </div>
+              </div>
+
+              <p
+                class="mt-6 text-sm text-slate-600 dark:text-slate-400 leading-relaxed"
+                id="edu-interpretacion"
+              >
+                La visualización permite identificar diferencias entre
+                provincias en términos de matrícula y deserción, facilitando el
+                monitoreo de brechas territoriales en el sistema educativo.
+              </p>
+            </section>
+
+            <!-- Módulo Salud -->
+            <section
+              id="modulo-salud"
+              class="bg-surface-gray dark:bg-slate-900/40 rounded-xl p-8 md:p-10 border border-border-gray"
+            >
+              <div
+                class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8"
+              >
+                <div>
+                  <h3
+                    class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-2"
+                  >
+                    Salud
+                  </h3>
+                  <p class="text-sm text-slate-500 max-w-xl">
+                    Datos sintéticos sobre capacidad hospitalaria y cobertura de
+                    vacunación, basados en estructuras similares a las
+                    estadísticas publicadas por la CCSS.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-4">
+                  <div class="flex flex-col gap-2">
+                    <label
+                      class="text-[11px] uppercase font-bold text-slate-500 tracking-wider"
+                      for="salud-filter-year"
+                      >Año</label
+                    >
+                    <select
+                      id="salud-filter-year"
+                      class="rounded-lg border-border-gray text-sm py-2 px-4 bg-white dark:bg-slate-800 focus:ring-primary min-w-[120px]"
+                    >
+                      <option value="all">Todos</option>
+                    </select>
+                  </div>
+                  <div class="flex flex-col gap-2">
+                    <label
+                      class="text-[11px] uppercase font-bold text-slate-500 tracking-wider"
+                      for="salud-filter-provincia"
+                      >Provincia</label
+                    >
+                    <select
+                      id="salud-filter-provincia"
+                      class="rounded-lg border-border-gray text-sm py-2 px-4 bg-white dark:bg-slate-800 focus:ring-primary min-w-[160px]"
+                    >
+                      <option value="all">Todas</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div
+                  class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-border-gray shadow-soft"
+                >
+                  <h4
+                    class="text-base font-bold text-slate-800 dark:text-slate-100 mb-4"
+                  >
+                    Camas Hospitalarias por 10.000 habitantes
+                  </h4>
+                  <canvas id="chart-salud-camas" height="220"></canvas>
+                </div>
+                <div
+                  class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-border-gray shadow-soft"
+                >
+                  <h4
+                    class="text-base font-bold text-slate-800 dark:text-slate-100 mb-4"
+                  >
+                    Cobertura de Vacunación (%)
+                  </h4>
+                  <canvas id="chart-salud-vacunas" height="220"></canvas>
+                </div>
+              </div>
+
+              <p
+                class="mt-6 text-sm text-slate-600 dark:text-slate-400 leading-relaxed"
+                id="salud-interpretacion"
+              >
+                Los indicadores permiten contrastar la capacidad instalada con
+                los niveles de cobertura de vacunación, útil para identificar
+                territorios donde fortalecer la prevención y la respuesta
+                sanitaria.
+              </p>
+            </section>
+
+            <!-- Módulo Infraestructura -->
+            <section
+              id="modulo-infraestructura"
+              class="bg-surface-gray dark:bg-slate-900/40 rounded-xl p-8 md:p-10 border border-border-gray"
+            >
+              <div
+                class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8"
+              >
+                <div>
+                  <h3
+                    class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-2"
+                  >
+                    Infraestructura
+                  </h3>
+                  <p class="text-sm text-slate-500 max-w-xl">
+                    Indicadores sintéticos sobre condición de la red vial e
+                    inversión en obra pública, inspirados en reportes del MOPT y
+                    Contraloría.
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-4">
+                  <div class="flex flex-col gap-2">
+                    <label
+                      class="text-[11px] uppercase font-bold text-slate-500 tracking-wider"
+                      for="infra-filter-year"
+                      >Año</label
+                    >
+                    <select
+                      id="infra-filter-year"
+                      class="rounded-lg border-border-gray text-sm py-2 px-4 bg-white dark:bg-slate-800 focus:ring-primary min-w-[120px]"
+                    >
+                      <option value="all">Todos</option>
+                    </select>
+                  </div>
+                  <div class="flex flex-col gap-2">
+                    <label
+                      class="text-[11px] uppercase font-bold text-slate-500 tracking-wider"
+                      for="infra-filter-region"
+                      >Región</label
+                    >
+                    <select
+                      id="infra-filter-region"
+                      class="rounded-lg border-border-gray text-sm py-2 px-4 bg-white dark:bg-slate-800 focus:ring-primary min-w-[160px]"
+                    >
+                      <option value="all">Todas</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div
+                  class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-border-gray shadow-soft"
+                >
+                  <h4
+                    class="text-base font-bold text-slate-800 dark:text-slate-100 mb-4"
+                  >
+                    Condición de la Red Vial (% bueno)
+                  </h4>
+                  <canvas id="chart-infra-condicion" height="220"></canvas>
+                </div>
+                <div
+                  class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-border-gray shadow-soft"
+                >
+                  <h4
+                    class="text-base font-bold text-slate-800 dark:text-slate-100 mb-4"
+                  >
+                    Inversión en Obra Pública (millones ₡)
+                  </h4>
+                  <canvas id="chart-infra-inversion" height="220"></canvas>
+                </div>
+              </div>
+
+              <p
+                class="mt-6 text-sm text-slate-600 dark:text-slate-400 leading-relaxed"
+                id="infra-interpretacion"
+              >
+                El análisis conjunto de condición vial e inversión permite
+                evaluar si los recursos públicos se orientan a las regiones con
+                mayores rezagos de infraestructura.
+              </p>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- Metodología / Visualización (texto + placeholder para futuros gráficos agregados) -->
+      <section
+        id="metodologia"
+        class="section-spacing bg-surface-gray dark:bg-background-dark/30"
+      >
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div
+            class="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-12"
+          >
+            <div class="max-w-2xl">
+              <h2>Metodología y Visualización de Datos</h2>
+              <p class="text-lg text-slate-500 mb-4">
+                El observatorio está diseñado para consumir archivos CSV y JSON
+                locales, transformarlos en indicadores y mostrarlos mediante
+                gráficos interactivos construidos con Chart.js.
+              </p>
+              <p class="text-lg text-slate-500">
+                Se prioriza la trazabilidad: cada módulo indica el tipo de
+                indicador, la unidad de medida y una interpretación breve, para
+                reducir el riesgo de malas lecturas de los datos.
+              </p>
+            </div>
+            <div
+              class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-border-gray shadow-soft text-sm text-slate-500 space-y-2 max-w-md"
+            >
+              <p class="font-semibold text-slate-700 dark:text-slate-100">
+                Stack técnico (100% frontend)
+              </p>
+              <ul class="list-disc list-inside space-y-1">
+                <li>HTML estático compatible con GitHub Pages.</li>
+                <li>Tailwind CSS via CDN para maquetación.</li>
+                <li>CSS propio en <code>/Styles/styles.css</code>.</li>
+                <li>JavaScript modular en <code>/Js/main.js</code>.</li>
+                <li>Datos locales en <code>/data/*.csv</code> y
+                  <code>/data/*.json</code>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conclusiones -->
+      <section
+        id="conclusiones"
+        class="section-spacing bg-white dark:bg-background-dark"
+      >
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <h2>Conclusiones Generales</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div
+              class="bg-surface-gray dark:bg-slate-900/40 p-6 rounded-xl border border-border-gray"
+            >
+              <h3
+                class="text-base font-bold text-slate-800 dark:text-slate-100 mb-3"
+              >
+                Brechas Territoriales
+              </h3>
+              <p class="text-sm text-slate-600 dark:text-slate-400">
+                La comparación entre provincias y regiones evidencia que
+                indicadores como matrícula, capacidad hospitalaria y condición
+                vial no se distribuyen de forma homogénea en el territorio.
+              </p>
+            </div>
+            <div
+              class="bg-surface-gray dark:bg-slate-900/40 p-6 rounded-xl border border-border-gray"
+            >
+              <h3
+                class="text-base font-bold text-slate-800 dark:text-slate-100 mb-3"
+              >
+                Relevancia de la Inversión Pública
+              </h3>
+              <p class="text-sm text-slate-600 dark:text-slate-400">
+                La lectura conjunta de infraestructura y servicios básicos
+                sugiere que la inversión sostenida es clave para cerrar brechas
+                históricas en regiones específicas.
+              </p>
+            </div>
+            <div
+              class="bg-surface-gray dark:bg-slate-900/40 p-6 rounded-xl border border-border-gray"
+            >
+              <h3
+                class="text-base font-bold text-slate-800 dark:text-slate-100 mb-3"
+              >
+                Uso Responsable de los Datos
+              </h3>
+              <p class="text-sm text-slate-600 dark:text-slate-400">
+                Las visualizaciones se acompañan de contexto metodológico para
+                evitar conclusiones simplistas; los datos son un insumo para el
+                debate informado, no un reemplazo del análisis experto.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fuentes de datos -->
+      <section
+        id="fuentes"
+        class="py-24 border-t border-border-gray bg-white dark:bg-background-dark"
+      >
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="text-center mb-8">
+            <h2 class="mb-3">Fuentes de Datos</h2>
+            <p class="text-sm text-slate-500 max-w-2xl mx-auto">
+              Los conjuntos de datos utilizados en este prototipo son
+              simplificados y de carácter ilustrativo. La estructura imita bases
+              reales de instituciones públicas de Costa Rica.
+            </p>
+          </div>
+
+          <div
+            class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 items-center justify-items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500"
+          >
+            <div class="text-center">
+              <p
+                class="font-black text-2xl text-slate-800 dark:text-slate-200"
+              >
+                INEC
+              </p>
+              <p
+                class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
+              >
+                Estadísticas y Censos
+              </p>
+            </div>
+            <div class="text-center">
+              <p
+                class="font-black text-2xl text-slate-800 dark:text-slate-200"
+              >
+                BCCR
+              </p>
+              <p
+                class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
+              >
+                Banco Central
+              </p>
+            </div>
+            <div class="text-center">
+              <p
+                class="font-black text-2xl text-slate-800 dark:text-slate-200"
+              >
+                MEP
+              </p>
+              <p
+                class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
+              >
+                Educación Pública
+              </p>
+            </div>
+            <div class="text-center">
+              <p
+                class="font-black text-2xl text-slate-800 dark:text-slate-200"
+              >
+                CCSS
+              </p>
+              <p
+                class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
+              >
+                Seguro Social
+              </p>
+            </div>
+            <div class="text-center">
+              <p
+                class="font-black text-2xl text-slate-800 dark:text-slate-200"
+              >
+                MOPT
+              </p>
+              <p
+                class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
+              >
+                Obras Públicas
+              </p>
+            </div>
+          </div>
+
+          <p
+            class="mt-10 text-xs text-center text-slate-500 max-w-3xl mx-auto leading-relaxed"
+          >
+            Nota: Los datos usados en este sitio son de ejemplo y no deben
+            interpretarse como cifras oficiales. Para análisis formales se
+            recomienda consultar directamente los portales de datos abiertos y
+            publicaciones oficiales de cada institución.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-slate-900 text-white pt-24 pb-12">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center gap-3 mb-8">
+              <span class="material-symbols-outlined text-primary text-4xl"
+                >analytics</span
+              >
+              <span class="text-2xl font-bold tracking-tight uppercase"
+                >Observatorio <span class="text-primary">CR</span></span
+              >
+            </div>
+            <p
+              class="text-slate-400 text-base leading-relaxed max-w-md"
+            >
+              Plataforma independiente dedicada al monitoreo técnico y la
+              visualización de datos gubernamentales en Costa Rica. Fomenta una
+              cultura de transparencia y rendición de cuentas basada en hechos.
+            </p>
+          </div>
+          <div>
+            <h5
+              class="font-bold text-sm mb-8 uppercase tracking-widest text-white/90"
+            >
+              Recursos
+            </h5>
+            <ul class="space-y-4 text-sm text-slate-400 font-medium">
+              <li><span>Repositorio GitHub (pendiente)</span></li>
+              <li><span>Documentación de Metodología</span></li>
+              <li><span>Datasets Crudos</span></li>
+              <li><span>Glosario Técnico</span></li>
+            </ul>
+          </div>
+          <div>
+            <h5
+              class="font-bold text-sm mb-8 uppercase tracking-widest text-white/90"
+            >
+              Licenciamiento
+            </h5>
+            <ul class="space-y-4 text-sm text-slate-400 font-medium">
+              <li><span>Uso educativo y no comercial</span></li>
+              <li><span>Licencia de contenido sugerida: CC BY 4.0</span></li>
+              <li><span>Código fuente: MIT (sugerido)</span></li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] text-slate-500 uppercase tracking-[0.2em] font-bold"
+        >
+          <p>© 2024 Observatorio de Datos Públicos – Costa Rica</p>
+          <div class="flex gap-8">
+            <span>GitHub</span>
+            <span>LinkedIn</span>
+            <span>Portfolio</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lógica principal del observatorio -->
+    <script src="../Js/main.js"></script>
+  </body>
+</html>
+
