@@ -10,22 +10,44 @@ body {
     "Segoe UI", sans-serif;
 }
 
-h2 {
+/* Títulos principales de sección */
+body h2 {
   font-size: 2.25rem; /* similar a text-4xl */
   line-height: 1.2;
   font-weight: 800;
   letter-spacing: -0.03em;
   margin-bottom: 2rem;
-  color: #0f172a;
-}
-
-@media (prefers-color-scheme: dark) {
-  h2 {
-    color: #ffffff;
-  }
+  color: #0f172a; /* Siempre oscuro, independientemente del modo del sistema */
 }
 
 .section-spacing {
   padding-top: 120px;
   padding-bottom: 120px;
+}
+
+/* Carrusel horizontal para las fuentes de datos */
+.data-sources-marquee {
+  overflow: hidden;
+  position: relative;
+}
+
+.data-sources-track {
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+  width: max-content;
+  animation: data-sources-scroll 40s linear infinite;
+}
+
+.data-sources-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes data-sources-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }

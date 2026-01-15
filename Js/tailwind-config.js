@@ -1,8 +1,12 @@
 // Configuración de Tailwind utilizada por el CDN.
-// Se define en un archivo separado para mantener el HTML libre de JavaScript embebido.
+// IMPORTANTE: el CDN de Tailwind espera una variable global `tailwind.config`,
+// no `window.tailwind.config`. Por eso se define exactamente así.
 
 window.tailwind = window.tailwind || {};
-window.tailwind.config = {
+window.tailwind.config = window.tailwind.config || {};
+
+// Esta asignación es la que realmente usa el CDN:
+tailwind.config = {
   darkMode: "class",
   theme: {
     extend: {

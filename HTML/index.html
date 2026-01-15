@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Observatorio de Datos Públicos – Costa Rica</title>
 
-    <!-- Tailwind CSS (para maquetación rápida y profesional) -->
-    <!-- Configuración propia de Tailwind en archivo externo -->
-    <script src="../Js/tailwind-config.js"></script>
+    <!-- Tailwind CSS (para maquetación rápida y profesional).
+         Primero cargamos una configuración mínima para que el modo oscuro
+         solo se active por clase (no por prefers-color-scheme), de forma que
+         el diseño se mantenga siempre en versión clara. -->
+    <script src="../Js/tailwind-theme.js"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&display=swap"
@@ -24,41 +26,39 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
-  <body
-    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased"
-  >
+  <body class="bg-white text-slate-900 antialiased">
     <header
-      class="sticky top-0 z-50 w-full border-b border-border-gray bg-white/95 dark:bg-background-dark/95 backdrop-blur supports-[backdrop-filter]:bg-white/60"
+      class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60"
     >
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center gap-3">
-            <div class="text-primary">
+            <div class="text-sky-700">
               <span class="material-symbols-outlined text-3xl">analytics</span>
             </div>
             <span
-              class="text-lg font-bold tracking-tight text-slate-900 dark:text-white uppercase"
-              >Observatorio <span class="text-primary">CR</span></span
+              class="text-lg font-bold tracking-tight text-slate-900 uppercase"
+              >Observatorio <span class="text-sky-700">CR</span></span
             >
           </div>
           <nav class="hidden md:flex items-center gap-8">
             <a
-              class="text-sm font-semibold text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
               href="#modulos"
               >Análisis</a
             >
             <a
-              class="text-sm font-semibold text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
               href="#metodologia"
               >Metodología</a
             >
             <a
-              class="text-sm font-semibold text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
               href="#sobre"
               >Sobre el Proyecto</a
             >
             <a
-              class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg text-sm font-bold transition-all shadow-sm"
+              class="bg-sky-700 hover:bg-sky-800 text-white px-6 py-2 rounded-lg text-sm font-bold transition-all shadow-sm"
               href="#modulos"
             >
               Explorar análisis
@@ -71,20 +71,20 @@
     <main>
       <!-- Hero / Inicio -->
       <section
-        class="relative overflow-hidden bg-white dark:bg-background-dark py-32 sm:py-40 border-b border-border-gray"
+        class="relative overflow-hidden bg-white py-32 sm:py-40 border-b border-slate-200"
       >
         <div
-          class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.blue.100),white)] dark:bg-[radial-gradient(45rem_50rem_at_top,theme(colors.slate.800),theme(colors.background-dark))] opacity-25"
+          class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.blue.100),white)] opacity-25"
         ></div>
         <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center">
           <div class="mx-auto max-w-4xl">
             <h1
-              class="text-5xl font-black tracking-tight text-slate-900 dark:text-white sm:text-7xl mb-8 leading-[1.1]"
+              class="text-5xl font-black tracking-tight text-slate-900 sm:text-7xl mb-8 leading-[1.1]"
             >
               Observatorio de Datos Públicos – Costa Rica
             </h1>
             <p
-              class="text-xl leading-relaxed text-slate-600 dark:text-slate-400 font-light mb-12 max-w-2xl mx-auto"
+              class="text-xl leading-relaxed text-slate-600 font-light mb-12 max-w-2xl mx-auto"
             >
               Centralizamos y procesamos información oficial de Costa Rica para
               ofrecer una visión clara del estado del país en educación, salud e
@@ -92,13 +92,13 @@
             </p>
             <div class="flex items-center justify-center gap-x-8">
               <a
-                class="rounded-lg bg-primary px-8 py-4 text-base font-bold text-white shadow-md hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all"
+                class="rounded-lg bg-sky-700 px-8 py-4 text-base font-bold text-white shadow-md hover:bg-sky-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-700 transition-all"
                 href="#modulos"
               >
                 Explorar conjuntos de datos
               </a>
               <a
-                class="text-sm font-bold leading-6 text-slate-900 dark:text-white hover:text-primary transition-colors"
+                class="text-sm font-bold leading-6 text-slate-900 hover:text-sky-700 transition-colors"
                 href="#metodologia"
                 >Ver metodología <span aria-hidden="true">→</span></a
               >
@@ -108,16 +108,13 @@
       </section>
 
       <!-- Acerca del observatorio -->
-      <section
-        id="sobre"
-        class="section-spacing bg-surface-gray dark:bg-background-dark/50"
-      >
+      <section id="sobre" class="section-spacing bg-slate-50">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
             <div>
               <h2>Acerca del Observatorio</h2>
               <p
-                class="text-lg leading-relaxed text-slate-600 dark:text-slate-400 mb-8"
+                class="text-lg leading-relaxed text-slate-600 mb-8"
               >
                 El acceso a datos públicos es fundamental para el desarrollo
                 democrático. Este observatorio centraliza y procesa información
@@ -125,25 +122,35 @@
                 del país con rigor técnico.
               </p>
               <p
-                class="text-lg leading-relaxed text-slate-600 dark:text-slate-400"
+                class="text-lg leading-relaxed text-slate-600"
               >
                 Nuestra misión es democratizar el acceso a la información
                 técnica, permitiendo que tanto tomadores de decisiones como
                 ciudadanía en general puedan monitorear el progreso nacional sin
                 sesgos políticos.
               </p>
+              <p
+                class="mt-6 text-lg leading-relaxed text-slate-600"
+              >
+                El observatorio está diseñado para consumir archivos CSV y JSON
+                locales, transformarlos en indicadores y mostrarlos mediante
+                gráficos interactivos construidos con Chart.js. Se prioriza la
+                trazabilidad: cada módulo indica el tipo de indicador, la unidad
+                de medida y una interpretación breve, para reducir el riesgo de
+                malas lecturas de los datos.
+              </p>
             </div>
             <div
-              class="bg-white dark:bg-slate-800 p-10 rounded-xl shadow-soft border border-border-gray"
+              class="bg-white p-10 rounded-xl shadow-soft border border-slate-200"
             >
               <div class="flex items-start gap-5 mb-10">
                 <span
-                  class="material-symbols-outlined text-primary p-3 bg-primary/10 rounded-lg"
+                  class="material-symbols-outlined text-sky-700 p-3 bg-sky-100 rounded-lg"
                   >verified</span
                 >
                 <div>
                   <h4
-                    class="font-bold text-lg text-slate-900 dark:text-white mb-1"
+                    class="font-bold text-lg text-slate-900 mb-1"
                   >
                     Fuentes Verificadas
                   </h4>
@@ -155,12 +162,12 @@
               </div>
               <div class="flex items-start gap-5 mb-10">
                 <span
-                  class="material-symbols-outlined text-accent-green p-3 bg-accent-green/10 rounded-lg"
+                  class="material-symbols-outlined text-emerald-600 p-3 bg-emerald-100 rounded-lg"
                   >update</span
                 >
                 <div>
                   <h4
-                    class="font-bold text-lg text-slate-900 dark:text-white mb-1"
+                    class="font-bold text-lg text-slate-900 mb-1"
                   >
                     Actualización Periódica
                   </h4>
@@ -177,7 +184,7 @@
                 >
                 <div>
                   <h4
-                    class="font-bold text-lg text-slate-900 dark:text-white mb-1"
+                    class="font-bold text-lg text-slate-900 mb-1"
                   >
                     Código Abierto
                   </h4>
@@ -195,7 +202,7 @@
       <!-- Módulos de análisis -->
       <section
         id="modulos"
-        class="section-spacing bg-white dark:bg-background-dark"
+        class="section-spacing bg-white"
       >
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="mb-20">
@@ -209,25 +216,25 @@
           <!-- Tarjetas resumen de módulos -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
             <a
-              class="group relative bg-white dark:bg-slate-800 p-8 rounded-[8px] border border-border-gray shadow-soft hover:border-primary transition-all text-left w-full block"
+              class="group relative bg-white p-8 rounded-[8px] border border-slate-200 shadow-soft hover:border-sky-700 transition-all text-left w-full block"
               href="#modulo-educacion"
             >
-              <div class="mb-8 inline-flex p-3 rounded-lg text-primary">
+              <div class="mb-8 inline-flex p-3 rounded-lg text-sky-600">
                 <span class="material-symbols-outlined text-4xl">school</span>
               </div>
               <h3
-                class="text-2xl font-bold text-slate-900 dark:text-white mb-4"
+                class="text-2xl font-bold text-slate-900 mb-4"
               >
                 Educación
               </h3>
               <p
-                class="text-slate-600 dark:text-slate-400 text-base mb-8 leading-relaxed"
+                class="text-slate-600 text-base mb-8 leading-relaxed"
               >
                 Matrícula, tasas de deserción y rendimiento en pruebas
                 estandarizadas por región educativa.
               </p>
               <div
-                class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest"
+                class="flex items-center gap-2 text-sky-700 font-bold text-xs uppercase tracking-widest"
               >
                 <span>Ver indicadores</span>
                 <span class="material-symbols-outlined text-sm"
@@ -237,27 +244,27 @@
             </a>
 
             <a
-              class="group relative bg-white dark:bg-slate-800 p-8 rounded-[8px] border border-border-gray shadow-soft hover:border-primary transition-all text-left w-full block"
+              class="group relative bg-white p-8 rounded-[8px] border border-slate-200 shadow-soft hover:border-sky-700 transition-all text-left w-full block"
               href="#modulo-salud"
             >
-              <div class="mb-8 inline-flex p-3 rounded-lg text-primary">
+              <div class="mb-8 inline-flex p-3 rounded-lg text-sky-600">
                 <span class="material-symbols-outlined text-4xl"
                   >health_and_safety</span
                 >
               </div>
               <h3
-                class="text-2xl font-bold text-slate-900 dark:text-white mb-4"
+                class="text-2xl font-bold text-slate-900 mb-4"
               >
                 Salud
               </h3>
               <p
-                class="text-slate-600 dark:text-slate-400 text-base mb-8 leading-relaxed"
+                class="text-slate-600 text-base mb-8 leading-relaxed"
               >
                 Capacidad hospitalaria, tiempos de espera y cobertura de
                 vacunación por provincia.
               </p>
               <div
-                class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest"
+                class="flex items-center gap-2 text-sky-700 font-bold text-xs uppercase tracking-widest"
               >
                 <span>Ver indicadores</span>
                 <span class="material-symbols-outlined text-sm"
@@ -267,27 +274,27 @@
             </a>
 
             <a
-              class="group relative bg-white dark:bg-slate-800 p-8 rounded-[8px] border border-border-gray shadow-soft hover:border-primary transition-all text-left w-full block"
+              class="group relative bg-white p-8 rounded-[8px] border border-slate-200 shadow-soft hover:border-sky-700 transition-all text-left w-full block"
               href="#modulo-infraestructura"
             >
-              <div class="mb-8 inline-flex p-3 rounded-lg text-primary">
+              <div class="mb-8 inline-flex p-3 rounded-lg text-sky-600">
                 <span class="material-symbols-outlined text-4xl"
                   >foundation</span
                 >
               </div>
               <h3
-                class="text-2xl font-bold text-slate-900 dark:text-white mb-4"
+                class="text-2xl font-bold text-slate-900 mb-4"
               >
                 Infraestructura
               </h3>
               <p
-                class="text-slate-600 dark:text-slate-400 text-base mb-8 leading-relaxed"
+                class="text-slate-600 text-base mb-8 leading-relaxed"
               >
                 Estado de la red vial, inversión en obra pública y acceso a
                 telecomunicaciones.
               </p>
               <div
-                class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest"
+                class="flex items-center gap-2 text-sky-700 font-bold text-xs uppercase tracking-widest"
               >
                 <span>Ver indicadores</span>
                 <span class="material-symbols-outlined text-sm"
@@ -297,351 +304,152 @@
             </a>
           </div>
 
-          <!-- Sección detallada de módulos con filtros y gráficos -->
-          <div class="space-y-24">
-            <!-- Módulo Educación -->
-            <section
-              id="modulo-educacion"
-              class="bg-surface-gray dark:bg-slate-900/40 rounded-xl p-8 md:p-10 border border-border-gray"
-            >
-              <div
-                class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8"
-              >
-                <div>
-                  <h3
-                    class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-2"
-                  >
-                    Educación
-                  </h3>
-                  <p class="text-sm text-slate-500 max-w-xl">
-                    Indicadores simplificados de matrícula y deserción por año
-                    y provincia, basados en datos de ejemplo inspirados en
-                    registros del MEP.
-                  </p>
-                </div>
-                <div class="flex flex-wrap gap-4">
-                  <div class="flex flex-col gap-2">
-                    <label
-                      class="text-[11px] uppercase font-bold text-slate-500 tracking-wider"
-                      for="edu-filter-year"
-                      >Año</label
-                    >
-                    <select
-                      id="edu-filter-year"
-                      class="rounded-lg border-border-gray text-sm py-2 px-4 bg-white dark:bg-slate-800 focus:ring-primary min-w-[120px]"
-                    >
-                      <option value="all">Todos</option>
-                    </select>
-                  </div>
-                  <div class="flex flex-col gap-2">
-                    <label
-                      class="text-[11px] uppercase font-bold text-slate-500 tracking-wider"
-                      for="edu-filter-provincia"
-                      >Provincia</label
-                    >
-                    <select
-                      id="edu-filter-provincia"
-                      class="rounded-lg border-border-gray text-sm py-2 px-4 bg-white dark:bg-slate-800 focus:ring-primary min-w-[160px]"
-                    >
-                      <option value="all">Todas</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div
-                  class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-border-gray shadow-soft"
-                >
-                  <h4
-                    class="text-base font-bold text-slate-800 dark:text-slate-100 mb-4"
-                  >
-                    Matrícula Estimada por Provincia
-                  </h4>
-                  <canvas id="chart-edu-matricula" height="220"></canvas>
-                </div>
-                <div
-                  class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-border-gray shadow-soft"
-                >
-                  <h4
-                    class="text-base font-bold text-slate-800 dark:text-slate-100 mb-4"
-                  >
-                    Tasa de Deserción (%) por Año
-                  </h4>
-                  <canvas id="chart-edu-desercion" height="220"></canvas>
-                </div>
-              </div>
-
-              <p
-                class="mt-6 text-sm text-slate-600 dark:text-slate-400 leading-relaxed"
-                id="edu-interpretacion"
-              >
-                La visualización permite identificar diferencias entre
-                provincias en términos de matrícula y deserción, facilitando el
-                monitoreo de brechas territoriales en el sistema educativo.
-              </p>
-            </section>
-
-            <!-- Módulo Salud -->
-            <section
-              id="modulo-salud"
-              class="bg-surface-gray dark:bg-slate-900/40 rounded-xl p-8 md:p-10 border border-border-gray"
-            >
-              <div
-                class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8"
-              >
-                <div>
-                  <h3
-                    class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-2"
-                  >
-                    Salud
-                  </h3>
-                  <p class="text-sm text-slate-500 max-w-xl">
-                    Datos sintéticos sobre capacidad hospitalaria y cobertura de
-                    vacunación, basados en estructuras similares a las
-                    estadísticas publicadas por la CCSS.
-                  </p>
-                </div>
-                <div class="flex flex-wrap gap-4">
-                  <div class="flex flex-col gap-2">
-                    <label
-                      class="text-[11px] uppercase font-bold text-slate-500 tracking-wider"
-                      for="salud-filter-year"
-                      >Año</label
-                    >
-                    <select
-                      id="salud-filter-year"
-                      class="rounded-lg border-border-gray text-sm py-2 px-4 bg-white dark:bg-slate-800 focus:ring-primary min-w-[120px]"
-                    >
-                      <option value="all">Todos</option>
-                    </select>
-                  </div>
-                  <div class="flex flex-col gap-2">
-                    <label
-                      class="text-[11px] uppercase font-bold text-slate-500 tracking-wider"
-                      for="salud-filter-provincia"
-                      >Provincia</label
-                    >
-                    <select
-                      id="salud-filter-provincia"
-                      class="rounded-lg border-border-gray text-sm py-2 px-4 bg-white dark:bg-slate-800 focus:ring-primary min-w-[160px]"
-                    >
-                      <option value="all">Todas</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div
-                  class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-border-gray shadow-soft"
-                >
-                  <h4
-                    class="text-base font-bold text-slate-800 dark:text-slate-100 mb-4"
-                  >
-                    Camas Hospitalarias por 10.000 habitantes
-                  </h4>
-                  <canvas id="chart-salud-camas" height="220"></canvas>
-                </div>
-                <div
-                  class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-border-gray shadow-soft"
-                >
-                  <h4
-                    class="text-base font-bold text-slate-800 dark:text-slate-100 mb-4"
-                  >
-                    Cobertura de Vacunación (%)
-                  </h4>
-                  <canvas id="chart-salud-vacunas" height="220"></canvas>
-                </div>
-              </div>
-
-              <p
-                class="mt-6 text-sm text-slate-600 dark:text-slate-400 leading-relaxed"
-                id="salud-interpretacion"
-              >
-                Los indicadores permiten contrastar la capacidad instalada con
-                los niveles de cobertura de vacunación, útil para identificar
-                territorios donde fortalecer la prevención y la respuesta
-                sanitaria.
-              </p>
-            </section>
-
-            <!-- Módulo Infraestructura -->
-            <section
-              id="modulo-infraestructura"
-              class="bg-surface-gray dark:bg-slate-900/40 rounded-xl p-8 md:p-10 border border-border-gray"
-            >
-              <div
-                class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8"
-              >
-                <div>
-                  <h3
-                    class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-2"
-                  >
-                    Infraestructura
-                  </h3>
-                  <p class="text-sm text-slate-500 max-w-xl">
-                    Indicadores sintéticos sobre condición de la red vial e
-                    inversión en obra pública, inspirados en reportes del MOPT y
-                    Contraloría.
-                  </p>
-                </div>
-                <div class="flex flex-wrap gap-4">
-                  <div class="flex flex-col gap-2">
-                    <label
-                      class="text-[11px] uppercase font-bold text-slate-500 tracking-wider"
-                      for="infra-filter-year"
-                      >Año</label
-                    >
-                    <select
-                      id="infra-filter-year"
-                      class="rounded-lg border-border-gray text-sm py-2 px-4 bg-white dark:bg-slate-800 focus:ring-primary min-w-[120px]"
-                    >
-                      <option value="all">Todos</option>
-                    </select>
-                  </div>
-                  <div class="flex flex-col gap-2">
-                    <label
-                      class="text-[11px] uppercase font-bold text-slate-500 tracking-wider"
-                      for="infra-filter-region"
-                      >Región</label
-                    >
-                    <select
-                      id="infra-filter-region"
-                      class="rounded-lg border-border-gray text-sm py-2 px-4 bg-white dark:bg-slate-800 focus:ring-primary min-w-[160px]"
-                    >
-                      <option value="all">Todas</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div
-                  class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-border-gray shadow-soft"
-                >
-                  <h4
-                    class="text-base font-bold text-slate-800 dark:text-slate-100 mb-4"
-                  >
-                    Condición de la Red Vial (% bueno)
-                  </h4>
-                  <canvas id="chart-infra-condicion" height="220"></canvas>
-                </div>
-                <div
-                  class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-border-gray shadow-soft"
-                >
-                  <h4
-                    class="text-base font-bold text-slate-800 dark:text-slate-100 mb-4"
-                  >
-                    Inversión en Obra Pública (millones ₡)
-                  </h4>
-                  <canvas id="chart-infra-inversion" height="220"></canvas>
-                </div>
-              </div>
-
-              <p
-                class="mt-6 text-sm text-slate-600 dark:text-slate-400 leading-relaxed"
-                id="infra-interpretacion"
-              >
-                El análisis conjunto de condición vial e inversión permite
-                evaluar si los recursos públicos se orientan a las regiones con
-                mayores rezagos de infraestructura.
-              </p>
-            </section>
-          </div>
+          <!-- Sección detallada de módulos con filtros y gráficos se implementará más adelante -->
         </div>
       </section>
 
-      <!-- Metodología / Visualización (texto + placeholder para futuros gráficos agregados) -->
-      <section
-        id="metodologia"
-        class="section-spacing bg-surface-gray dark:bg-background-dark/30"
-      >
+      <!-- Visualización de Datos -->
+      <section class="section-spacing bg-slate-50">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div
-            class="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-12"
+            class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16"
           >
-            <div class="max-w-2xl">
-              <h2>Metodología y Visualización de Datos</h2>
-              <p class="text-lg text-slate-500 mb-4">
-                El observatorio está diseñado para consumir archivos CSV y JSON
-                locales, transformarlos en indicadores y mostrarlos mediante
-                gráficos interactivos construidos con Chart.js.
-              </p>
-              <p class="text-lg text-slate-500">
-                Se prioriza la trazabilidad: cada módulo indica el tipo de
-                indicador, la unidad de medida y una interpretación breve, para
-                reducir el riesgo de malas lecturas de los datos.
+            <div>
+              <h2>Visualización de Datos</h2>
+              <p class="text-lg text-slate-500 max-w-2xl">
+                Monitoreo dinámico de los principales indicadores
+                macroeconómicos y sociales.
               </p>
             </div>
             <div
-              class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-border-gray shadow-soft text-sm text-slate-500 space-y-2 max-w-md"
+              class="flex gap-8 bg-white p-6 rounded-xl border border-slate-200 shadow-soft"
             >
-              <p class="font-semibold text-slate-700 dark:text-slate-100">
-                Stack técnico (100% frontend)
-              </p>
-              <ul class="list-disc list-inside space-y-1">
-                <li>HTML estático compatible con GitHub Pages.</li>
-                <li>Tailwind CSS via CDN para maquetación.</li>
-                <li>CSS propio en <code>/Styles/styles.css</code>.</li>
-                <li>JavaScript modular en <code>/Js/main.js</code>.</li>
-                <li>Datos locales en <code>/data/*.csv</code> y
-                  <code>/data/*.json</code>.</li>
-              </ul>
+              <div class="flex flex-col gap-2">
+                <label
+                  class="text-[11px] uppercase font-bold text-slate-500 tracking-wider"
+                  for="viz-filter-year"
+                  >Filtrar por Año</label
+                >
+                <select
+                  id="viz-filter-year"
+                  class="rounded-lg border-slate-200 text-sm py-2 px-4 bg-white focus:ring-sky-700 min-w-[120px]"
+                >
+                  <option value="2026" selected>2026</option>
+                  <option value="2025">2025</option>
+                  <option value="2024">2024</option>
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
+                  <option value="2021">2021</option>
+                  <option value="2020">2020</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-2">
+                <label
+                  class="text-[11px] uppercase font-bold text-slate-500 tracking-wider"
+                  for="viz-filter-provincia"
+                  >Seleccionar Provincia</label
+                >
+                <select
+                  id="viz-filter-provincia"
+                  class="rounded-lg border-slate-200 text-sm py-2 px-4 bg-white focus:ring-sky-700 min-w-[180px]"
+                >
+                  <option value="todas" selected>Todas las Provincias</option>
+                  <option value="san-jose">San José</option>
+                  <option value="alajuela">Alajuela</option>
+                  <option value="cartago">Cartago</option>
+                  <option value="heredia">Heredia</option>
+                  <option value="guanacaste">Guanacaste</option>
+                  <option value="puntarenas">Puntarenas</option>
+                  <option value="limon">Limón</option>
+                </select>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      <!-- Conclusiones -->
-      <section
-        id="conclusiones"
-        class="section-spacing bg-white dark:bg-background-dark"
-      >
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2>Conclusiones Generales</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+            <!-- Gráfico de barras -->
             <div
-              class="bg-surface-gray dark:bg-slate-900/40 p-6 rounded-xl border border-border-gray"
+              class="bg-white p-10 rounded-xl border border-slate-200 shadow-soft lg:col-span-2"
             >
-              <h3
-                class="text-base font-bold text-slate-800 dark:text-slate-100 mb-3"
-              >
-                Brechas Territoriales
-              </h3>
-              <p class="text-sm text-slate-600 dark:text-slate-400">
-                La comparación entre provincias y regiones evidencia que
-                indicadores como matrícula, capacidad hospitalaria y condición
-                vial no se distribuyen de forma homogénea en el territorio.
-              </p>
+              <div class="flex items-center justify-between mb-10">
+                <h5
+                  class="text-lg font-bold text-slate-800"
+                >
+                  Tendencias de Empleo (Millones de Personas)
+                </h5>
+                <span class="material-symbols-outlined text-slate-400"
+                  >insights</span
+                >
+              </div>
+              <div class="h-72">
+                <canvas id="viz-empleo"></canvas>
+              </div>
             </div>
+
+            <!-- Donut presupuesto -->
             <div
-              class="bg-surface-gray dark:bg-slate-900/40 p-6 rounded-xl border border-border-gray"
+              class="bg-white p-10 rounded-xl border border-slate-200 shadow-soft"
             >
-              <h3
-                class="text-base font-bold text-slate-800 dark:text-slate-100 mb-3"
+              <h5
+                class="text-lg font-bold text-slate-800 mb-10"
               >
-                Relevancia de la Inversión Pública
-              </h3>
-              <p class="text-sm text-slate-600 dark:text-slate-400">
-                La lectura conjunta de infraestructura y servicios básicos
-                sugiere que la inversión sostenida es clave para cerrar brechas
-                históricas en regiones específicas.
-              </p>
+                Distribución del Presupuesto
+              </h5>
+              <div class="relative w-56 h-56 mx-auto mb-10">
+                <canvas id="viz-presupuesto"></canvas>
+              </div>
+              <div class="space-y-4 text-sm">
+                <div class="flex items-center gap-3">
+                  <span class="w-3 h-3 rounded-full bg-sky-600"></span>
+                  <span class="text-slate-600 font-medium"
+                    >Educación (40%)</span
+                  >
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                  <span class="text-slate-600 font-medium"
+                    >Salud (25%)</span
+                  >
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+                  <span class="text-slate-600 font-medium"
+                    >Otros (35%)</span
+                  >
+                </div>
+              </div>
             </div>
-            <div
-              class="bg-surface-gray dark:bg-slate-900/40 p-6 rounded-xl border border-border-gray"
-            >
-              <h3
-                class="text-base font-bold text-slate-800 dark:text-slate-100 mb-3"
+          </div>
+
+          <!-- Línea PIB -->
+          <div
+            class="bg-white p-10 rounded-xl border border-slate-200 shadow-soft"
+          >
+            <div class="flex items-center justify-between mb-10">
+              <h5
+                class="text-lg font-bold text-slate-800"
               >
-                Uso Responsable de los Datos
-              </h3>
-              <p class="text-sm text-slate-600 dark:text-slate-400">
-                Las visualizaciones se acompañan de contexto metodológico para
-                evitar conclusiones simplistas; los datos son un insumo para el
-                debate informado, no un reemplazo del análisis experto.
-              </p>
+                Crecimiento Económico (PIB Variación %)
+              </h5>
+              <div class="flex gap-6">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-1 bg-sky-600 rounded-full"></span>
+                  <span
+                    class="text-[11px] font-bold text-slate-500 uppercase"
+                    >Proyectado</span
+                  >
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-1 bg-emerald-500 rounded-full"></span>
+                  <span
+                    class="text-[11px] font-bold text-slate-500 uppercase"
+                    >Real</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="relative h-64 w-full">
+              <canvas id="viz-pib"></canvas>
             </div>
           </div>
         </div>
@@ -650,7 +458,7 @@
       <!-- Fuentes de datos -->
       <section
         id="fuentes"
-        class="py-24 border-t border-border-gray bg-white dark:bg-background-dark"
+        class="py-24 border-t border-slate-200 bg-white"
       >
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="text-center mb-8">
@@ -662,68 +470,115 @@
             </p>
           </div>
 
-          <div
-            class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 items-center justify-items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500"
-          >
-            <div class="text-center">
-              <p
-                class="font-black text-2xl text-slate-800 dark:text-slate-200"
-              >
-                INEC
-              </p>
-              <p
-                class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
-              >
-                Estadísticas y Censos
-              </p>
-            </div>
-            <div class="text-center">
-              <p
-                class="font-black text-2xl text-slate-800 dark:text-slate-200"
-              >
-                BCCR
-              </p>
-              <p
-                class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
-              >
-                Banco Central
-              </p>
-            </div>
-            <div class="text-center">
-              <p
-                class="font-black text-2xl text-slate-800 dark:text-slate-200"
-              >
-                MEP
-              </p>
-              <p
-                class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
-              >
-                Educación Pública
-              </p>
-            </div>
-            <div class="text-center">
-              <p
-                class="font-black text-2xl text-slate-800 dark:text-slate-200"
-              >
-                CCSS
-              </p>
-              <p
-                class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
-              >
-                Seguro Social
-              </p>
-            </div>
-            <div class="text-center">
-              <p
-                class="font-black text-2xl text-slate-800 dark:text-slate-200"
-              >
-                MOPT
-              </p>
-              <p
-                class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
-              >
-                Obras Públicas
-              </p>
+          <div class="data-sources-marquee opacity-70 hover:opacity-100 transition-opacity duration-500">
+            <div class="data-sources-track">
+              <!-- Bloque de instituciones (duplicado para efecto de carrusel infinito) -->
+              <div class="flex items-center gap-16">
+                <div class="text-center">
+                  <p class="font-black text-2xl text-slate-800">
+                    INEC
+                  </p>
+                  <p
+                    class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
+                  >
+                    Estadísticas y Censos
+                  </p>
+                </div>
+                <div class="text-center">
+                  <p class="font-black text-2xl text-slate-800">
+                    BCCR
+                  </p>
+                  <p
+                    class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
+                  >
+                    Banco Central
+                  </p>
+                </div>
+                <div class="text-center">
+                  <p class="font-black text-2xl text-slate-800">
+                    MEP
+                  </p>
+                  <p
+                    class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
+                  >
+                    Educación Pública
+                  </p>
+                </div>
+                <div class="text-center">
+                  <p class="font-black text-2xl text-slate-800">
+                    CCSS
+                  </p>
+                  <p
+                    class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
+                  >
+                    Seguro Social
+                  </p>
+                </div>
+                <div class="text-center">
+                  <p class="font-black text-2xl text-slate-800">
+                    MOPT
+                  </p>
+                  <p
+                    class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
+                  >
+                    Obras Públicas
+                  </p>
+                </div>
+              </div>
+
+              <!-- Duplicado para que el carrusel sea continuo -->
+              <div class="flex items-center gap-16">
+                <div class="text-center">
+                  <p class="font-black text-2xl text-slate-800">
+                    INEC
+                  </p>
+                  <p
+                    class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
+                  >
+                    Estadísticas y Censos
+                  </p>
+                </div>
+                <div class="text-center">
+                  <p class="font-black text-2xl text-slate-800">
+                    BCCR
+                  </p>
+                  <p
+                    class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
+                  >
+                    Banco Central
+                  </p>
+                </div>
+                <div class="text-center">
+                  <p class="font-black text-2xl text-slate-800">
+                    MEP
+                  </p>
+                  <p
+                    class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
+                  >
+                    Educación Pública
+                  </p>
+                </div>
+                <div class="text-center">
+                  <p class="font-black text-2xl text-slate-800">
+                    CCSS
+                  </p>
+                  <p
+                    class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
+                  >
+                    Seguro Social
+                  </p>
+                </div>
+                <div class="text-center">
+                  <p class="font-black text-2xl text-slate-800">
+                    MOPT
+                  </p>
+                  <p
+                    class="text-[10px] font-bold text-slate-500 uppercase mt-1 tracking-widest"
+                  >
+                    Obras Públicas
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -744,19 +599,22 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
           <div class="col-span-1 md:col-span-2">
             <div class="flex items-center gap-3 mb-8">
-              <span class="material-symbols-outlined text-primary text-4xl"
-                >analytics</span
+              <div
+                class="flex h-9 w-9 items-center justify-center rounded-md bg-sky-700 text-white"
               >
-              <span class="text-2xl font-bold tracking-tight uppercase"
-                >Observatorio <span class="text-primary">CR</span></span
+                <span class="material-symbols-outlined text-[20px]">analytics</span>
+              </div>
+              <span
+                class="text-xl md:text-2xl font-extrabold tracking-tight uppercase text-white"
               >
+                OBSERVATORIO <span class="text-sky-400">CR</span>
+              </span>
             </div>
-            <p
-              class="text-slate-400 text-base leading-relaxed max-w-md"
-            >
+            <p class="text-slate-400 text-base leading-relaxed max-w-md">
               Plataforma independiente dedicada al monitoreo técnico y la
-              visualización de datos gubernamentales en Costa Rica. Fomenta una
-              cultura de transparencia y rendición de cuentas basada en hechos.
+              visualización de datos gubernamentales en Costa Rica. Fomentamos
+              una cultura de transparencia y rendición de cuentas basada en
+              hechos.
             </p>
           </div>
           <div>
@@ -766,33 +624,45 @@
               Recursos
             </h5>
             <ul class="space-y-4 text-sm text-slate-400 font-medium">
-              <li><span>Repositorio GitHub (pendiente)</span></li>
-              <li><span>Documentación de Metodología</span></li>
-              <li><span>Datasets Crudos</span></li>
-              <li><span>Glosario Técnico</span></li>
+              <li><a class="hover:text-primary transition-colors" href="#">Repositorio GitHub</a></li>
+              <li><a class="hover:text-primary transition-colors" href="#">API Documentation</a></li>
+              <li><a class="hover:text-primary transition-colors" href="#">Datasets Crudos</a></li>
+              <li><a class="hover:text-primary transition-colors" href="#">Glosario Técnico</a></li>
             </ul>
           </div>
           <div>
             <h5
               class="font-bold text-sm mb-8 uppercase tracking-widest text-white/90"
             >
-              Licenciamiento
+              Legal
             </h5>
             <ul class="space-y-4 text-sm text-slate-400 font-medium">
-              <li><span>Uso educativo y no comercial</span></li>
-              <li><span>Licencia de contenido sugerida: CC BY 4.0</span></li>
-              <li><span>Código fuente: MIT (sugerido)</span></li>
+              <li><a class="hover:text-primary transition-colors" href="#">Términos de Uso</a></li>
+              <li><a class="hover:text-primary transition-colors" href="#">Privacidad</a></li>
             </ul>
           </div>
         </div>
         <div
           class="border-t border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] text-slate-500 uppercase tracking-[0.2em] font-bold"
         >
-          <p>© 2024 Observatorio de Datos Públicos – Costa Rica</p>
+          <p>© 2026 Observatorio de Datos Públicos – Costa Rica</p>
           <div class="flex gap-8">
-            <span>GitHub</span>
-            <span>LinkedIn</span>
-            <span>Portfolio</span>
+            <a
+              class="hover:text-white transition-colors"
+              href="https://www.linkedin.com/in/andr%C3%A9s-camacho-s%C3%A1nchez-672b7b286"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            <a
+              class="hover:text-white transition-colors"
+              href="https://acamacho20027.github.io/PerfilAndresCamachoSanchez/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Portfolio
+            </a>
           </div>
         </div>
       </div>
