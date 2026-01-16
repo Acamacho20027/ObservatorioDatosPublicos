@@ -1,0 +1,53 @@
+/* Estilos específicos para la página de Metodología */
+
+/* Línea vertical que conecta los pasos de metodología */
+.methodology-step::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 60px;
+  bottom: -20px;
+  width: 1px;
+  background-color: #cbd5e1; /* slate-300 */
+}
+
+.methodology-step:last-child::before {
+  display: none;
+}
+
+/* Ajustes de espaciado para los pasos */
+.methodology-step {
+  position: relative;
+}
+
+/* Mejora de legibilidad en las tarjetas */
+.methodology-step .bg-white {
+  transition: box-shadow 0.2s ease;
+}
+
+.methodology-step .bg-white:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Alineación perfecta de iconos con títulos */
+.methodology-step .flex.items-center.gap-3 {
+  display: flex;
+  align-items: baseline;
+}
+
+.methodology-step .flex.items-center.gap-3 .material-symbols-outlined {
+  font-size: 1.5rem;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: baseline;
+  transform: translateY(0.15em); /* Ajuste fino para alinear con la línea base del texto */
+  flex-shrink: 0;
+}
+
+.methodology-step .flex.items-center.gap-3 h2 {
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
