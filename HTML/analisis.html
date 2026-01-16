@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Módulos de Análisis | Observatorio de Datos Públicos</title>
+
+    <!-- Tailwind CSS -->
+    <script src="../Js/tailwind-theme.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="../Styles/styles.css" />
+    <link rel="stylesheet" href="../Styles/analisis.css" />
+
+    <!-- Chart.js para visualización de datos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body class="bg-slate-50 text-slate-900 antialiased">
+    <!-- Navigation -->
+    <header
+      class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60"
+    >
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="text-sky-700">
+              <span class="material-symbols-outlined text-3xl">analytics</span>
+            </div>
+            <a href="index.html" class="text-lg font-bold tracking-tight text-slate-900 uppercase">
+              Observatorio <span class="text-sky-700">CR</span>
+            </a>
+            <a
+              href="index.html"
+              class="md:hidden text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors ml-4"
+              >Inicio</a
+            >
+          </div>
+          <nav class="hidden md:flex items-center gap-8">
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="index.html"
+              >Inicio</a
+            >
+            <a
+              class="text-sm font-semibold text-sky-700 border-b-2 border-sky-700 font-bold"
+              href="analisis.html"
+              >Análisis</a
+            >
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="metodologia.html"
+              >Metodología</a
+            >
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="index.html#sobre"
+              >Sobre el Proyecto</a
+            >
+            <a
+              class="bg-sky-700 hover:bg-sky-800 text-white px-6 py-2 rounded-lg text-sm font-bold transition-all shadow-sm"
+              href="index.html#modulos"
+            >
+              Explorar análisis
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <!-- Page Heading -->
+      <div class="mb-12">
+        <h1 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-4">
+          Módulos de Análisis
+        </h1>
+        <p class="text-lg text-slate-600 max-w-2xl">
+          Exploración detallada de los sectores estratégicos de Costa Rica. Metodología basada en
+          datos abiertos institucionales con actualización trimestral.
+        </p>
+      </div>
+
+      <div class="space-y-20">
+        <!-- SECTION: EDUCACION -->
+        <section
+          class="bg-white rounded-xl border border-slate-200 shadow-soft overflow-hidden"
+          id="educacion"
+        >
+          <div class="p-6 md:p-8">
+            <div class="flex items-center gap-4 mb-4">
+              <div
+                class="w-12 h-12 rounded-lg bg-sky-100 flex items-center justify-center text-sky-700"
+              >
+                <span class="material-symbols-outlined text-3xl">school</span>
+              </div>
+              <div>
+                <h2 class="text-2xl font-bold text-slate-900">Educación</h2>
+                <p class="text-slate-600">Tasa de matriculación, infraestructura física y brecha digital.</p>
+              </div>
+            </div>
+
+            <!-- Filters -->
+            <div
+              class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 bg-slate-50 p-4 rounded-lg"
+            >
+              <div class="flex flex-col gap-1">
+                <label class="text-xs font-bold uppercase text-slate-500">Año de Referencia</label>
+                <select
+                  id="edu-filter-year"
+                  class="w-full rounded-lg border-slate-200 bg-white focus:ring-sky-700 focus:border-sky-700 text-sm py-2 px-3"
+                >
+                  <option selected>2026</option>
+                  <option>2025</option>
+                  <option>2024</option>
+                  <option>2023</option>
+                  <option>2022</option>
+                  <option>2021</option>
+                  <option>2020</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-1">
+                <label class="text-xs font-bold uppercase text-slate-500">Región Planificación</label>
+                <select
+                  id="edu-filter-region"
+                  class="w-full rounded-lg border-slate-200 bg-white focus:ring-sky-700 focus:border-sky-700 text-sm py-2 px-3"
+                >
+                  <option>Todas las regiones</option>
+                  <option>Central</option>
+                  <option>Chorotega</option>
+                  <option>Pacífico Central</option>
+                  <option>Brunca</option>
+                  <option>Huetar Norte</option>
+                  <option>Huetar Caribe</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-1">
+                <label class="text-xs font-bold uppercase text-slate-500">Provincia</label>
+                <select
+                  id="edu-filter-province"
+                  class="w-full rounded-lg border-slate-200 bg-white focus:ring-sky-700 focus:border-sky-700 text-sm py-2 px-3"
+                >
+                  <option>Nivel Nacional</option>
+                  <option>San José</option>
+                  <option>Alajuela</option>
+                  <option>Cartago</option>
+                  <option>Heredia</option>
+                  <option>Guanacaste</option>
+                  <option>Puntarenas</option>
+                  <option>Limón</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Grid Visualizations -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+              <div class="border border-slate-200 rounded-lg p-5">
+                <h3 class="font-bold mb-4 flex items-center gap-2 text-slate-800">
+                  <span class="material-symbols-outlined text-sky-700 text-sm">bar_chart</span>
+                  Distribución de Matrícula por Nivel
+                </h3>
+                <div class="h-64 w-full">
+                  <canvas id="chart-edu-matricula"></canvas>
+                </div>
+              </div>
+              <div class="border border-slate-200 rounded-lg p-5">
+                <h3 class="font-bold mb-4 flex items-center gap-2 text-slate-800">
+                  <span class="material-symbols-outlined text-sky-700 text-sm">trending_up</span>
+                  Evolución de Deserción Escolar (%)
+                </h3>
+                <div class="h-64 w-full">
+                  <canvas id="chart-edu-desercion"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Insights Panel -->
+            <div class="bg-sky-50 border-l-4 border-sky-700 p-6 rounded-r-lg">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="material-symbols-outlined text-sky-700">lightbulb</span>
+                <h4 class="font-bold text-sky-700">Insights Principales</h4>
+              </div>
+              <p class="text-sm leading-relaxed text-slate-700" id="edu-insights">
+                Se observa una correlación directa del 0.72 entre la mejora de infraestructura
+                tecnológica y la retención escolar en zonas rurales. La provincia de Limón presenta
+                el mayor incremento relativo en matrícula técnica (+12%) respecto al periodo
+                anterior, superando el promedio nacional de 4.5%.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: SALUD -->
+        <section
+          class="bg-white rounded-xl border border-slate-200 shadow-soft overflow-hidden"
+          id="salud"
+        >
+          <div class="p-6 md:p-8">
+            <div class="flex items-center gap-4 mb-4">
+              <div
+                class="w-12 h-12 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-600"
+              >
+                <span class="material-symbols-outlined text-3xl">medical_services</span>
+              </div>
+              <div>
+                <h2 class="text-2xl font-bold text-slate-900">Salud</h2>
+                <p class="text-slate-600">Capacidad hospitalaria, tiempos de espera y cobertura regional.</p>
+              </div>
+            </div>
+
+            <!-- Filters -->
+            <div
+              class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 bg-slate-50 p-4 rounded-lg"
+            >
+              <div class="flex flex-col gap-1">
+                <label class="text-xs font-bold uppercase text-slate-500">Año de Referencia</label>
+                <select
+                  id="salud-filter-year"
+                  class="w-full rounded-lg border-slate-200 bg-white focus:ring-emerald-600 focus:border-emerald-600 text-sm py-2 px-3"
+                >
+                  <option selected>2026</option>
+                  <option>2025</option>
+                  <option>2024</option>
+                  <option>2023</option>
+                  <option>2022</option>
+                  <option>2021</option>
+                  <option>2020</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-1">
+                <label class="text-xs font-bold uppercase text-slate-500">Tipo de Centro</label>
+                <select
+                  id="salud-filter-tipo"
+                  class="w-full rounded-lg border-slate-200 bg-white focus:ring-emerald-600 focus:border-emerald-600 text-sm py-2 px-3"
+                >
+                  <option>Todos los niveles</option>
+                  <option>Hospitales Nacionales</option>
+                  <option>Áreas de Salud (EBAIS)</option>
+                  <option>Clínicas Especializadas</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-1">
+                <label class="text-xs font-bold uppercase text-slate-500">Red de Servicios</label>
+                <select
+                  id="salud-filter-red"
+                  class="w-full rounded-lg border-slate-200 bg-white focus:ring-emerald-600 focus:border-emerald-600 text-sm py-2 px-3"
+                >
+                  <option>Nivel Nacional</option>
+                  <option>Red Central</option>
+                  <option>Red Norte</option>
+                  <option>Red Sur</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Grid Visualizations -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+              <div class="border border-slate-200 rounded-lg p-5">
+                <h3 class="font-bold mb-4 flex items-center gap-2 text-slate-800">
+                  <span class="material-symbols-outlined text-emerald-600 text-sm">pie_chart</span>
+                  Disponibilidad de Camas por Especialidad
+                </h3>
+                <div class="h-64 w-full">
+                  <canvas id="chart-salud-camas"></canvas>
+                </div>
+              </div>
+              <div class="border border-slate-200 rounded-lg p-5">
+                <h3 class="font-bold mb-4 flex items-center gap-2 text-slate-800">
+                  <span class="material-symbols-outlined text-emerald-600 text-sm">show_chart</span>
+                  Días de Espera Promedio (Cirugía)
+                </h3>
+                <div class="h-64 w-full">
+                  <canvas id="chart-salud-espera"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Insights Panel -->
+            <div class="bg-emerald-50 border-l-4 border-emerald-600 p-6 rounded-r-lg">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="material-symbols-outlined text-emerald-600">health_metrics</span>
+                <h4 class="font-bold text-emerald-600">Análisis Epidemiológico</h4>
+              </div>
+              <p class="text-sm leading-relaxed text-slate-700" id="salud-insights">
+                La digitalización de expedientes (EDUS) ha permitido una reducción del 14% en la
+                duplicidad de citas en el primer nivel de atención. Los tiempos de espera para
+                procedimientos electivos muestran una tendencia a la baja en la Red Central, aunque
+                se mantiene una brecha crítica en la Región Huetar Caribe.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: INFRAESTRUCTURA -->
+        <section
+          class="bg-white rounded-xl border border-slate-200 shadow-soft overflow-hidden mb-12"
+          id="infraestructura"
+        >
+          <div class="p-6 md:p-8">
+            <div class="flex items-center gap-4 mb-4">
+              <div
+                class="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center text-orange-600"
+              >
+                <span class="material-symbols-outlined text-3xl">engineering</span>
+              </div>
+              <div>
+                <h2 class="text-2xl font-bold text-slate-900">Infraestructura</h2>
+                <p class="text-slate-600">Estado de red vial, ejecución de obra pública y conectividad.</p>
+              </div>
+            </div>
+
+            <!-- Filters -->
+            <div
+              class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 bg-slate-50 p-4 rounded-lg"
+            >
+              <div class="flex flex-col gap-1">
+                <label class="text-xs font-bold uppercase text-slate-500">Periodo Presupuestario</label>
+                <select
+                  id="infra-filter-periodo"
+                  class="w-full rounded-lg border-slate-200 bg-white focus:ring-orange-600 focus:border-orange-600 text-sm py-2 px-3"
+                >
+                  <option selected>Ejecución 2026</option>
+                  <option>Ejecución 2025</option>
+                  <option>Ejecución 2024</option>
+                  <option>Ejecución 2023</option>
+                  <option>Liquidación 2022</option>
+                  <option>Liquidación 2021</option>
+                  <option>Liquidación 2020</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-1">
+                <label class="text-xs font-bold uppercase text-slate-500">Tipo de Red</label>
+                <select
+                  id="infra-filter-tipo"
+                  class="w-full rounded-lg border-slate-200 bg-white focus:ring-orange-600 focus:border-orange-600 text-sm py-2 px-3"
+                >
+                  <option>Red Vial Nacional</option>
+                  <option>Red Vial Cantonal</option>
+                  <option>Puentes y Estructuras</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-1">
+                <label class="text-xs font-bold uppercase text-slate-500">Estado del Proyecto</label>
+                <select
+                  id="infra-filter-estado"
+                  class="w-full rounded-lg border-slate-200 bg-white focus:ring-orange-600 focus:border-orange-600 text-sm py-2 px-3"
+                >
+                  <option>Todos</option>
+                  <option>En Diseño</option>
+                  <option>En Ejecución</option>
+                  <option>Finalizado</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Visualizations -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+              <div class="lg:col-span-2 border border-slate-200 rounded-lg p-5">
+                <h3 class="font-bold mb-4 flex items-center gap-2 text-slate-800">
+                  <span class="material-symbols-outlined text-orange-600 text-sm">map</span>
+                  Condición de la Red Vial por Región
+                </h3>
+                <div class="h-80 w-full">
+                  <canvas id="chart-infra-condicion"></canvas>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <div class="border border-slate-200 rounded-lg p-5 h-full">
+                  <h3 class="font-bold mb-6 flex items-center gap-2 text-slate-800">
+                    <span class="material-symbols-outlined text-orange-600 text-sm">donut_small</span>
+                    Ejecución Presupuestaria
+                  </h3>
+                  <div class="space-y-6">
+                    <div>
+                      <div class="flex justify-between text-xs mb-1">
+                        <span class="font-medium text-slate-600">Mantenimiento</span>
+                        <span class="font-bold text-slate-800">85%</span>
+                      </div>
+                      <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                        <div class="bg-orange-500 h-full w-[85%]"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between text-xs mb-1">
+                        <span class="font-medium text-slate-600">Obra Nueva</span>
+                        <span class="font-bold text-slate-800">42%</span>
+                      </div>
+                      <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                        <div class="bg-orange-500 h-full w-[42%]"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between text-xs mb-1">
+                        <span class="font-medium text-slate-600">Puentes</span>
+                        <span class="font-bold text-slate-800">12%</span>
+                      </div>
+                      <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                        <div class="bg-orange-500 h-full w-[12%]"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mt-8 p-3 bg-orange-50 rounded text-[11px] text-orange-800">
+                    <span class="font-bold">Alerta:</span> La ejecución en puentes presenta un
+                    retraso de 3 meses respecto al cronograma original.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Insights Panel -->
+            <div class="bg-orange-50 border-l-4 border-orange-600 p-6 rounded-r-lg">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="material-symbols-outlined text-orange-600">construction</span>
+                <h4 class="font-bold text-orange-600">Interpretación de Datos</h4>
+              </div>
+              <p class="text-sm leading-relaxed text-slate-700" id="infra-insights">
+                La red vial nacional muestra un índice de servicio (IRI) estable, sin embargo, la
+                red cantonal en el Pacífico Central requiere una inversión urgente estimada en $45M
+                para asegurar la conectividad durante la época lluviosa. Los proyectos de
+                conectividad digital de última milla han alcanzado el 60% de los centros educativos
+                prioritarios.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="bg-slate-900 text-white pt-24 pb-12">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center gap-3 mb-8">
+              <span class="material-symbols-outlined text-sky-400 text-4xl">analytics</span>
+              <span class="text-2xl font-bold tracking-tight uppercase"
+                >Observatorio <span class="text-sky-400">CR</span></span
+              >
+            </div>
+            <p class="text-slate-400 text-base leading-relaxed max-w-md">
+              Plataforma independiente dedicada al monitoreo técnico y la visualización de datos
+              gubernamentales en Costa Rica. Fomentamos una cultura de transparencia y rendición
+              de cuentas basada en hechos.
+            </p>
+          </div>
+          <div>
+            <h5
+              class="font-bold text-sm mb-8 uppercase tracking-widest text-white/90"
+            >
+              Recursos
+            </h5>
+            <ul class="space-y-4 text-sm text-slate-400 font-medium">
+              <li><span>Repositorio GitHub (pendiente)</span></li>
+              <li><span>Documentación de Metodología</span></li>
+              <li><span>Datasets Crudos</span></li>
+              <li><span>Glosario Técnico</span></li>
+            </ul>
+          </div>
+          <div>
+            <h5
+              class="font-bold text-sm mb-8 uppercase tracking-widest text-white/90"
+            >
+              Legal
+            </h5>
+            <ul class="space-y-4 text-sm text-slate-400 font-medium">
+              <li><span>Términos de Uso</span></li>
+              <li><span>Privacidad</span></li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] text-slate-500 uppercase tracking-[0.2em] font-bold"
+        >
+          <p>© 2026 Observatorio de Datos Públicos – Costa Rica</p>
+          <div class="flex gap-8">
+            <a
+              href="https://www.linkedin.com/in/andr%C3%A9s-camacho-s%C3%A1nchez-672b7b286"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-white transition-colors"
+              >LinkedIn</a
+            >
+            <a
+              href="https://acamacho20027.github.io/PerfilAndresCamachoSanchez/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-white transition-colors"
+              >Portfolio</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript para funcionalidades de la página -->
+    <script src="../Js/analisis.js"></script>
+  </body>
+</html>
