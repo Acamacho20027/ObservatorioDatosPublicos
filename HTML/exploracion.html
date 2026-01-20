@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explorar Análisis de Datos - Observatorio de Datos Públicos</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+
+    <!-- Tailwind CSS -->
+    <script src="../Js/tailwind-theme.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="../Styles/styles.css" />
+    <link rel="stylesheet" href="../Styles/exploracion.css" />
+
+    <!-- Chart.js para visualización de datos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body class="bg-white text-slate-900 antialiased min-h-screen flex flex-col">
+    <!-- Header Navigation -->
+    <header
+      class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60"
+    >
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="text-sky-700">
+              <span class="material-symbols-outlined text-3xl">analytics</span>
+            </div>
+            <a
+              href="index.html"
+              class="text-lg font-bold tracking-tight text-slate-900 uppercase"
+              >Observatorio <span class="text-sky-700">CR</span></a
+            >
+            <a
+              href="index.html"
+              class="md:hidden text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors ml-4"
+              >Inicio</a
+            >
+          </div>
+          <nav class="hidden md:flex items-center gap-8">
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="index.html"
+              >Inicio</a
+            >
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="analisis.html"
+              >Análisis</a
+            >
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="metodologia.html"
+              >Metodología</a
+            >
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="index.html#sobre"
+              >Sobre el Proyecto</a
+            >
+            <a
+              class="text-sm font-semibold text-sky-700 border-b-2 border-sky-700 py-1"
+              href="exploracion.html"
+              >Explorar</a
+            >
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1 max-w-7xl mx-auto w-full px-6 py-10 space-y-12">
+      <!-- Page Heading & Context -->
+      <section class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div class="max-w-2xl">
+          <h2 class="text-4xl font-black leading-tight tracking-tight mb-3 text-slate-900">
+            Explorar Análisis de Datos
+          </h2>
+          <p class="text-lg text-slate-600 leading-relaxed">
+            Cargue sus propios conjuntos de datos para generar visualizaciones interactivas de impacto social y económico.
+          </p>
+        </div>
+        <div class="bg-sky-50 border border-sky-200 p-4 rounded-xl flex items-start gap-3 max-w-sm">
+          <span class="material-symbols-outlined text-sky-700">privacy_tip</span>
+          <p class="text-xs text-sky-700 font-medium leading-relaxed">
+            Privacidad Garantizada: El procesamiento de archivos ocurre exclusivamente en su navegador. Sus datos nunca son cargados a nuestros servidores.
+          </p>
+        </div>
+      </section>
+
+      <!-- Upload Section -->
+      <section class="w-full">
+        <div
+          id="upload-area"
+          class="flex flex-col items-center gap-6 rounded-2xl border-2 border-dashed border-slate-300 bg-slate-50 px-6 py-16 hover:border-sky-700 transition-colors group cursor-pointer"
+        >
+          <input
+            type="file"
+            id="file-input"
+            accept=".csv,.json"
+            class="hidden"
+          />
+          <div class="bg-sky-100 p-4 rounded-full group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-sky-700 text-4xl">upload_file</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 text-center">
+            <p class="text-xl font-bold tracking-tight text-slate-900">
+              Cargar archivo CSV o JSON
+            </p>
+            <p class="text-sm text-slate-600">
+              Arrastra y suelta tu archivo aquí o haz clic para buscar en tu equipo
+            </p>
+          </div>
+          <button
+            id="upload-btn"
+            class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-11 px-6 bg-sky-700 text-white text-sm font-bold hover:bg-sky-800 hover:shadow-lg transition-all"
+          >
+            <span>Seleccionar Archivo</span>
+          </button>
+          <p id="file-error" class="text-sm text-red-600 font-medium hidden"></p>
+        </div>
+      </section>
+
+      <!-- Data Preview & Config -->
+      <section id="data-preview-section" class="space-y-6 hidden">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <span class="material-symbols-outlined text-sky-700">table_view</span>
+            Vista Previa de Datos
+          </h3>
+          <span id="preview-count" class="text-xs font-semibold uppercase tracking-wider text-slate-500">
+            Mostrando 5 de 0 registros
+          </span>
+        </div>
+        <div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+          <div class="overflow-x-auto">
+            <table id="preview-table" class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-slate-50 border-b border-slate-200">
+                  <!-- Headers se generan dinámicamente -->
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200">
+                <!-- Rows se generan dinámicamente -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Visualization Configuration Panel -->
+      <section id="config-section" class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hidden">
+        <div class="flex flex-wrap items-center gap-6">
+          <div class="flex-1 min-w-[200px]">
+            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+              Eje X (Categorías)
+            </label>
+            <select
+              id="x-axis-select"
+              class="w-full bg-white border-slate-200 rounded-lg text-sm py-2.5 px-4 focus:ring-sky-700 focus:border-sky-700"
+            >
+              <option value="">Seleccione una columna</option>
+            </select>
+          </div>
+          <div class="flex-1 min-w-[200px]">
+            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+              Eje Y (Valores)
+            </label>
+            <select
+              id="y-axis-select"
+              class="w-full bg-white border-slate-200 rounded-lg text-sm py-2.5 px-4 focus:ring-sky-700 focus:border-sky-700"
+            >
+              <option value="">Seleccione una columna</option>
+              <option value="count">Conteo de Registros</option>
+            </select>
+          </div>
+          <div class="flex-1 min-w-[200px]">
+            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+              Tipo de Gráfico
+            </label>
+            <div class="flex gap-2">
+              <button
+                data-chart-type="bar"
+                class="chart-type-btn p-2 rounded-lg bg-sky-700 text-white flex-1 flex items-center justify-center gap-2 text-sm font-medium hover:bg-sky-800 transition-colors"
+              >
+                <span class="material-symbols-outlined text-lg">bar_chart</span>
+                Barras
+              </button>
+              <button
+                data-chart-type="line"
+                class="chart-type-btn p-2 rounded-lg bg-slate-100 text-slate-900 flex-1 flex items-center justify-center gap-2 text-sm font-medium hover:bg-slate-200 transition-colors"
+              >
+                <span class="material-symbols-outlined text-lg">show_chart</span>
+                Línea
+              </button>
+              <button
+                data-chart-type="pie"
+                class="chart-type-btn p-2 rounded-lg bg-slate-100 text-slate-900 flex-1 flex items-center justify-center gap-2 text-sm font-medium hover:bg-slate-200 transition-colors"
+              >
+                <span class="material-symbols-outlined text-lg">pie_chart</span>
+                Torta
+              </button>
+            </div>
+          </div>
+          <div class="w-full flex justify-end">
+            <button
+              id="generate-chart-btn"
+              class="rounded-lg bg-sky-700 px-6 py-2 text-sm font-bold text-white hover:bg-sky-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled
+            >
+              Generar Visualización
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Visualization Area -->
+      <section id="visualization-section" class="w-full hidden">
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-lg overflow-hidden min-h-[500px] flex flex-col">
+          <div class="px-8 py-6 border-b border-slate-200 flex justify-between items-center bg-slate-50">
+            <div>
+              <h4 id="chart-title" class="text-lg font-bold text-slate-900">
+                Visualización de Datos
+              </h4>
+              <p id="chart-subtitle" class="text-xs text-slate-500">
+                Datos acumulados del archivo actual
+              </p>
+            </div>
+            <div class="flex items-center gap-4">
+              <button
+                id="reset-btn"
+                class="text-sky-700 hover:bg-sky-50 p-2 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium"
+              >
+                <span class="material-symbols-outlined">refresh</span>
+                Reiniciar
+              </button>
+            </div>
+          </div>
+          <div class="flex-1 p-8 relative min-h-[400px] flex items-center justify-center">
+            <canvas id="chart-canvas" class="hidden"></canvas>
+            <div id="chart-empty" class="text-center text-slate-400">
+              <span class="material-symbols-outlined text-6xl mb-4">insights</span>
+              <p class="text-sm">Configure los parámetros y genere la visualización</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal de confirmación para reiniciar -->
+    <div id="reset-modal" class="hidden fixed inset-0 z-50 overflow-y-auto">
+      <div class="flex min-h-screen items-center justify-center p-4">
+        <!-- Overlay con fondo semitransparente -->
+        <div
+          class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm transition-opacity"
+          id="modal-overlay"
+        ></div>
+        
+        <!-- Modal -->
+        <div class="relative bg-white rounded-xl shadow-2xl max-w-md w-full transform transition-all">
+          <div class="p-6">
+            <!-- Icono de advertencia -->
+            <div class="flex justify-center mb-4">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-sky-100">
+                <span class="material-symbols-outlined text-sky-700 text-3xl">warning</span>
+              </div>
+            </div>
+            
+            <!-- Título -->
+            <h3 class="text-xl font-bold text-slate-900 text-center mb-2">
+              ¿Reiniciar análisis?
+            </h3>
+            
+            <!-- Mensaje -->
+            <p class="text-sm text-slate-600 text-center mb-6 leading-relaxed">
+              Se perderán todos los datos cargados y las visualizaciones generadas. Esta acción no se puede deshacer.
+            </p>
+            
+            <!-- Botones -->
+            <div class="flex gap-3">
+              <button
+                id="modal-cancel-btn"
+                class="flex-1 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+              >
+                Cancelar
+              </button>
+              <button
+                id="modal-confirm-btn"
+                class="flex-1 rounded-lg bg-sky-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-sky-800 transition-colors"
+              >
+                Reiniciar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-slate-900 text-white pt-24 pb-12 mt-auto">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center gap-3 mb-8">
+              <div
+                class="flex h-9 w-9 items-center justify-center rounded-md bg-sky-700 text-white"
+              >
+                <span class="material-symbols-outlined text-[20px]">analytics</span>
+              </div>
+              <span
+                class="text-xl md:text-2xl font-extrabold tracking-tight uppercase text-white"
+              >
+                OBSERVATORIO <span class="text-sky-400">CR</span>
+              </span>
+            </div>
+            <p class="text-slate-400 text-base leading-relaxed max-w-md">
+              Los datos procesados no se almacenan en el servidor. Esta interfaz es una herramienta de exploración de datos de código abierto para ciudadanos e investigadores costarricenses. Los resultados generados son para fines exploratorios únicamente.
+            </p>
+          </div>
+          <div>
+            <h5
+              class="font-bold text-sm mb-8 uppercase tracking-widest text-white/90"
+            >
+              Recursos
+            </h5>
+            <ul class="space-y-4 text-sm text-slate-400 font-medium">
+              <li><a class="hover:text-sky-400 transition-colors" href="https://github.com/Acamacho20027/ObservatorioDatosPublicos" target="_blank" rel="noopener noreferrer">Repositorio GitHub</a></li>
+              <li><a class="hover:text-sky-400 transition-colors" href="documentacion.html">API Documentation</a></li>
+              <li><a class="hover:text-sky-400 transition-colors" href="datasets.html">Datasets Crudos</a></li>
+              <li><a class="hover:text-sky-400 transition-colors" href="glosario.html">Glosario Técnico</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5
+              class="font-bold text-sm mb-8 uppercase tracking-widest text-white/90"
+            >
+              Legal
+            </h5>
+            <ul class="space-y-4 text-sm text-slate-400 font-medium">
+              <li><a class="hover:text-sky-400 transition-colors" href="#">Términos de Uso</a></li>
+              <li><a class="hover:text-sky-400 transition-colors" href="#">Privacidad</a></li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] text-slate-500 uppercase tracking-[0.2em] font-bold"
+        >
+          <p>© 2026 Observatorio de Datos Públicos – Costa Rica</p>
+          <div class="flex gap-8">
+            <a
+              class="hover:text-white transition-colors"
+              href="https://www.linkedin.com/in/andr%C3%A9s-camacho-s%C3%A1nchez-672b7b286"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            <a
+              class="hover:text-white transition-colors"
+              href="https://acamacho20027.github.io/PerfilAndresCamachoSanchez/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Portfolio
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lógica de exploración de datos -->
+    <script src="../Js/exploracion.js"></script>
+  </body>
+</html>

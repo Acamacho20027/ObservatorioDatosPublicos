@@ -1,0 +1,151 @@
+/* Estilos específicos para la vista de Exploración de Análisis */
+
+/* Patrón de fondo para el área de visualización */
+.chart-grid {
+  background-image: radial-gradient(#dde0e4 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Estilos para el área de carga de archivos */
+#upload-area {
+  transition: all 0.3s ease;
+}
+
+#upload-area.drag-over {
+  border-color: #0369a1;
+  background-color: #f0f9ff;
+  transform: scale(1.02);
+}
+
+/* Animación para el icono de carga */
+#upload-area:hover .material-symbols-outlined {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* Estilos para la tabla de vista previa */
+#preview-table {
+  font-size: 0.875rem;
+}
+
+#preview-table th {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+}
+
+#preview-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Estilos para los botones de tipo de gráfico */
+.chart-type-btn {
+  transition: all 0.2s ease;
+}
+
+.chart-type-btn:active {
+  transform: scale(0.95);
+}
+
+/* Estilos para el canvas del gráfico */
+#chart-canvas {
+  max-height: 500px;
+}
+
+/* Animación de carga para cuando se procesa el archivo */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Estilos para mensajes de error */
+#file-error {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #preview-table {
+    font-size: 0.75rem;
+  }
+
+  #preview-table th,
+  #preview-table td {
+    padding: 0.5rem;
+  }
+
+  .chart-type-btn {
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem;
+  }
+}
+
+/* Mejoras de accesibilidad */
+button:focus-visible,
+select:focus-visible {
+  outline: 2px solid #0369a1;
+  outline-offset: 2px;
+}
+
+/* Animación suave para mostrar/ocultar secciones */
+.hidden {
+  display: none;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos para el modal de confirmación */
+#reset-modal {
+  animation: fadeInModal 0.2s ease-out;
+}
+
+#reset-modal .bg-white {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

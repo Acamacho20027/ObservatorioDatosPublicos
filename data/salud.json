@@ -1,0 +1,212 @@
+[
+  {
+    "anio": 2021,
+    "provincia": "San José",
+    "hospitales": 12,
+    "clinicas": 28,
+    "cobertura_vacunacion": 85.5,
+    "espera_consulta_dias": 15,
+    "camas_disponibles": 1240,
+    "personal_medico": 2850
+  },
+  {
+    "anio": 2021,
+    "provincia": "Alajuela",
+    "hospitales": 6,
+    "clinicas": 18,
+    "cobertura_vacunacion": 82.3,
+    "espera_consulta_dias": 18,
+    "camas_disponibles": 680,
+    "personal_medico": 1420
+  },
+  {
+    "anio": 2021,
+    "provincia": "Cartago",
+    "hospitales": 4,
+    "clinicas": 14,
+    "cobertura_vacunacion": 84.1,
+    "espera_consulta_dias": 16,
+    "camas_disponibles": 520,
+    "personal_medico": 1100
+  },
+  {
+    "anio": 2021,
+    "provincia": "Heredia",
+    "hospitales": 5,
+    "clinicas": 16,
+    "cobertura_vacunacion": 86.2,
+    "espera_consulta_dias": 14,
+    "camas_disponibles": 590,
+    "personal_medico": 1280
+  },
+  {
+    "anio": 2021,
+    "provincia": "Guanacaste",
+    "hospitales": 3,
+    "clinicas": 12,
+    "cobertura_vacunacion": 79.8,
+    "espera_consulta_dias": 22,
+    "camas_disponibles": 380,
+    "personal_medico": 780
+  },
+  {
+    "anio": 2021,
+    "provincia": "Puntarenas",
+    "hospitales": 4,
+    "clinicas": 15,
+    "cobertura_vacunacion": 80.5,
+    "espera_consulta_dias": 20,
+    "camas_disponibles": 450,
+    "personal_medico": 920
+  },
+  {
+    "anio": 2021,
+    "provincia": "Limón",
+    "hospitales": 3,
+    "clinicas": 13,
+    "cobertura_vacunacion": 78.9,
+    "espera_consulta_dias": 21,
+    "camas_disponibles": 420,
+    "personal_medico": 850
+  },
+  {
+    "anio": 2022,
+    "provincia": "San José",
+    "hospitales": 13,
+    "clinicas": 30,
+    "cobertura_vacunacion": 87.2,
+    "espera_consulta_dias": 14,
+    "camas_disponibles": 1320,
+    "personal_medico": 2980
+  },
+  {
+    "anio": 2022,
+    "provincia": "Alajuela",
+    "hospitales": 6,
+    "clinicas": 19,
+    "cobertura_vacunacion": 83.8,
+    "espera_consulta_dias": 17,
+    "camas_disponibles": 720,
+    "personal_medico": 1510
+  },
+  {
+    "anio": 2022,
+    "provincia": "Cartago",
+    "hospitales": 4,
+    "clinicas": 15,
+    "cobertura_vacunacion": 85.5,
+    "espera_consulta_dias": 15,
+    "camas_disponibles": 550,
+    "personal_medico": 1160
+  },
+  {
+    "anio": 2022,
+    "provincia": "Heredia",
+    "hospitales": 5,
+    "clinicas": 17,
+    "cobertura_vacunacion": 87.6,
+    "espera_consulta_dias": 13,
+    "camas_disponibles": 620,
+    "personal_medico": 1350
+  },
+  {
+    "anio": 2022,
+    "provincia": "Guanacaste",
+    "hospitales": 3,
+    "clinicas": 13,
+    "cobertura_vacunacion": 81.2,
+    "espera_consulta_dias": 20,
+    "camas_disponibles": 400,
+    "personal_medico": 820
+  },
+  {
+    "anio": 2022,
+    "provincia": "Puntarenas",
+    "hospitales": 4,
+    "clinicas": 16,
+    "cobertura_vacunacion": 81.9,
+    "espera_consulta_dias": 19,
+    "camas_disponibles": 480,
+    "personal_medico": 980
+  },
+  {
+    "anio": 2022,
+    "provincia": "Limón",
+    "hospitales": 3,
+    "clinicas": 14,
+    "cobertura_vacunacion": 80.3,
+    "espera_consulta_dias": 20,
+    "camas_disponibles": 440,
+    "personal_medico": 900
+  },
+  {
+    "anio": 2023,
+    "provincia": "San José",
+    "hospitales": 13,
+    "clinicas": 32,
+    "cobertura_vacunacion": 88.5,
+    "espera_consulta_dias": 13,
+    "camas_disponibles": 1400,
+    "personal_medico": 3100
+  },
+  {
+    "anio": 2023,
+    "provincia": "Alajuela",
+    "hospitales": 7,
+    "clinicas": 20,
+    "cobertura_vacunacion": 84.9,
+    "espera_consulta_dias": 16,
+    "camas_disponibles": 760,
+    "personal_medico": 1600
+  },
+  {
+    "anio": 2023,
+    "provincia": "Cartago",
+    "hospitales": 4,
+    "clinicas": 16,
+    "cobertura_vacunacion": 86.8,
+    "espera_consulta_dias": 14,
+    "camas_disponibles": 580,
+    "personal_medico": 1220
+  },
+  {
+    "anio": 2023,
+    "provincia": "Heredia",
+    "hospitales": 5,
+    "clinicas": 18,
+    "cobertura_vacunacion": 88.9,
+    "espera_consulta_dias": 12,
+    "camas_disponibles": 650,
+    "personal_medico": 1420
+  },
+  {
+    "anio": 2023,
+    "provincia": "Guanacaste",
+    "hospitales": 3,
+    "clinicas": 14,
+    "cobertura_vacunacion": 82.6,
+    "espera_consulta_dias": 19,
+    "camas_disponibles": 420,
+    "personal_medico": 860
+  },
+  {
+    "anio": 2023,
+    "provincia": "Puntarenas",
+    "hospitales": 4,
+    "clinicas": 17,
+    "cobertura_vacunacion": 83.2,
+    "espera_consulta_dias": 18,
+    "camas_disponibles": 500,
+    "personal_medico": 1040
+  },
+  {
+    "anio": 2023,
+    "provincia": "Limón",
+    "hospitales": 3,
+    "clinicas": 15,
+    "cobertura_vacunacion": 81.7,
+    "espera_consulta_dias": 19,
+    "camas_disponibles": 460,
+    "personal_medico": 950
+  }
+]

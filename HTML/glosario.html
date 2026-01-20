@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glosario Técnico - Observatorio de Datos Públicos</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+
+    <!-- Tailwind CSS -->
+    <script src="../Js/tailwind-theme.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="../Styles/styles.css" />
+  </head>
+
+  <body class="bg-white text-slate-900 antialiased">
+    <header
+      class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60"
+    >
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="text-sky-700">
+              <span class="material-symbols-outlined text-3xl">analytics</span>
+            </div>
+            <a
+              href="index.html"
+              class="text-lg font-bold tracking-tight text-slate-900 uppercase"
+              >Observatorio <span class="text-sky-700">CR</span></a
+            >
+            <a
+              href="index.html"
+              class="md:hidden text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors ml-4"
+              >Inicio</a
+            >
+          </div>
+          <nav class="hidden md:flex items-center gap-8">
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="index.html"
+              >Inicio</a
+            >
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="analisis.html"
+              >Análisis</a
+            >
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="metodologia.html"
+              >Metodología</a
+            >
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="index.html#sobre"
+              >Sobre el Proyecto</a
+            >
+            <a
+              class="bg-sky-700 hover:bg-sky-800 text-white px-6 py-2 rounded-lg text-sm font-bold transition-all shadow-sm"
+              href="exploracion.html"
+            >
+              Explorar análisis
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="section-spacing">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <!-- Page Heading -->
+        <div class="mb-16 max-w-3xl">
+          <p class="text-sky-700 text-sm font-bold uppercase tracking-widest mb-4">
+            Referencia Técnica
+          </p>
+          <h1 class="text-4xl md:text-5xl font-black leading-tight tracking-tight text-slate-900 mb-6">
+            Glosario Técnico
+          </h1>
+          <p class="text-lg text-slate-600 leading-relaxed">
+            Definiciones de términos técnicos y conceptos utilizados en el análisis de datos públicos, visualización de información y metodologías del Observatorio.
+          </p>
+        </div>
+
+        <!-- Glosario Sections -->
+        <div class="space-y-12">
+          <!-- Formato de Datos -->
+          <section>
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+              <div class="flex items-center gap-3 mb-8">
+                <span class="material-symbols-outlined text-sky-700 text-3xl">storage</span>
+                <h2 class="text-2xl font-bold text-slate-900">Formatos de Datos</h2>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="border-l-4 border-sky-700 pl-6">
+                  <h3 class="font-bold text-slate-900 mb-2">CSV (Comma-Separated Values)</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed">
+                    Formato de archivo de texto plano que almacena datos tabulares separados por comas. Es ampliamente compatible y fácil de procesar.
+                  </p>
+                </div>
+                <div class="border-l-4 border-emerald-600 pl-6">
+                  <h3 class="font-bold text-slate-900 mb-2">JSON (JavaScript Object Notation)</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed">
+                    Formato de intercambio de datos ligero y legible por humanos, basado en la sintaxis de JavaScript. Ideal para estructuras de datos jerárquicas.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Visualización de Datos -->
+          <section>
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+              <div class="flex items-center gap-3 mb-8">
+                <span class="material-symbols-outlined text-sky-700 text-3xl">bar_chart</span>
+                <h2 class="text-2xl font-bold text-slate-900">Visualización de Datos</h2>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="border-l-4 border-sky-700 pl-6">
+                  <h3 class="font-bold text-slate-900 mb-2">Gráfico de Barras</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed">
+                    Representación visual que utiliza barras rectangulares para comparar valores entre diferentes categorías o grupos.
+                  </p>
+                </div>
+                <div class="border-l-4 border-emerald-600 pl-6">
+                  <h3 class="font-bold text-slate-900 mb-2">Gráfico de Líneas</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed">
+                    Visualización que muestra datos como una serie de puntos conectados por líneas, ideal para mostrar tendencias a lo largo del tiempo.
+                  </p>
+                </div>
+                <div class="border-l-4 border-amber-600 pl-6">
+                  <h3 class="font-bold text-slate-900 mb-2">Gráfico de Torta (Pie Chart)</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed">
+                    Representación circular dividida en segmentos, donde cada segmento muestra la proporción de un valor respecto al total.
+                  </p>
+                </div>
+                <div class="border-l-4 border-purple-600 pl-6">
+                  <h3 class="font-bold text-slate-900 mb-2">Visualización Interactiva</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed">
+                    Gráficos que permiten a los usuarios interactuar con los datos, explorar detalles y personalizar la vista según sus necesidades.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Términos de Análisis -->
+          <section>
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+              <div class="flex items-center gap-3 mb-8">
+                <span class="material-symbols-outlined text-sky-700 text-3xl">insights</span>
+                <h2 class="text-2xl font-bold text-slate-900">Análisis de Datos</h2>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="border-l-4 border-sky-700 pl-6">
+                  <h3 class="font-bold text-slate-900 mb-2">Indicador</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed">
+                    Medida cuantitativa o cualitativa que permite evaluar el estado, progreso o rendimiento de un fenómeno o proceso.
+                  </p>
+                </div>
+                <div class="border-l-4 border-emerald-600 pl-6">
+                  <h3 class="font-bold text-slate-900 mb-2">Métrica</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed">
+                    Valor numérico que cuantifica una característica o atributo de los datos, utilizada para comparar y evaluar.
+                  </p>
+                </div>
+                <div class="border-l-4 border-amber-600 pl-6">
+                  <h3 class="font-bold text-slate-900 mb-2">Agregación de Datos</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed">
+                    Proceso de combinar múltiples valores de datos para obtener un valor resumido, como suma, promedio o conteo.
+                  </p>
+                </div>
+                <div class="border-l-4 border-purple-600 pl-6">
+                  <h3 class="font-bold text-slate-900 mb-2">Análisis Exploratorio</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed">
+                    Enfoque de análisis de datos que busca identificar patrones, tendencias y relaciones sin hipótesis previas definidas.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Términos del Dominio (Educación, Salud, Infraestructura) -->
+          <section>
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+              <div class="flex items-center gap-3 mb-8">
+                <span class="material-symbols-outlined text-sky-700 text-3xl">menu_book</span>
+                <h2 class="text-2xl font-bold text-slate-900">Términos del Dominio</h2>
+              </div>
+              
+              <!-- Educación -->
+              <div class="mb-6">
+                <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-sky-700">school</span>
+                  Educación
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="bg-slate-50 rounded-lg p-4">
+                    <h4 class="font-semibold text-slate-900 mb-1">Matrícula</h4>
+                    <p class="text-sm text-slate-600">
+                      Número total de estudiantes inscritos en un nivel educativo específico durante un período académico.
+                    </p>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-4">
+                    <h4 class="font-semibold text-slate-900 mb-1">Tasa de Deserción</h4>
+                    <p class="text-sm text-slate-600">
+                      Porcentaje de estudiantes que abandonan sus estudios antes de completar el nivel educativo.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Salud -->
+              <div class="mb-6">
+                <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-emerald-700">health_and_safety</span>
+                  Salud
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="bg-slate-50 rounded-lg p-4">
+                    <h4 class="font-semibold text-slate-900 mb-1">Cobertura de Vacunación</h4>
+                    <p class="text-sm text-slate-600">
+                      Porcentaje de la población objetivo que ha recibido una dosis específica de vacuna en un período determinado.
+                    </p>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-4">
+                    <h4 class="font-semibold text-slate-900 mb-1">Capacidad Hospitalaria</h4>
+                    <p class="text-sm text-sm text-slate-600">
+                      Número máximo de camas disponibles y personal médico para atender pacientes en centros de salud.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Infraestructura -->
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-amber-700">foundation</span>
+                  Infraestructura
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="bg-slate-50 rounded-lg p-4">
+                    <h4 class="font-semibold text-slate-900 mb-1">Condición Vial</h4>
+                    <p class="text-sm text-slate-600">
+                      Estado físico de las carreteras clasificado generalmente como bueno, regular o malo según criterios técnicos.
+                    </p>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-4">
+                    <h4 class="font-semibold text-slate-900 mb-1">Inversión en Obra Pública</h4>
+                    <p class="text-sm text-slate-600">
+                      Monto financiero destinado a proyectos de infraestructura pública como carreteras, puentes y edificios gubernamentales.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Conceptos Técnicos Generales -->
+          <section>
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+              <div class="flex items-center gap-3 mb-8">
+                <span class="material-symbols-outlined text-sky-700 text-3xl">settings</span>
+                <h2 class="text-2xl font-bold text-slate-900">Conceptos Técnicos Generales</h2>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="border-l-4 border-sky-700 pl-6">
+                  <h3 class="font-bold text-slate-900 mb-2">Datos Abiertos (Open Data)</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed">
+                    Información pública disponible en formatos accesibles y reutilizables, sin restricciones de copyright o patentes.
+                  </p>
+                </div>
+                <div class="border-l-4 border-emerald-600 pl-6">
+                  <h3 class="font-bold text-slate-900 mb-2">Procesamiento Local</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed">
+                    Ejecución de operaciones y análisis de datos directamente en el dispositivo del usuario, sin enviar información a servidores externos.
+                  </p>
+                </div>
+                <div class="border-l-4 border-amber-600 pl-6">
+                  <h3 class="font-bold text-slate-900 mb-2">Codificación UTF-8</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed">
+                    Estándar de codificación de caracteres que permite representar todos los caracteres Unicode, incluyendo caracteres especiales y acentos.
+                  </p>
+                </div>
+                <div class="border-l-4 border-purple-600 pl-6">
+                  <h3 class="font-bold text-slate-900 mb-2">Datos Tabulares</h3>
+                  <p class="text-slate-600 text-sm leading-relaxed">
+                    Estructura de datos organizada en filas y columnas, similar a una hoja de cálculo, donde cada fila representa un registro.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-slate-900 text-white pt-24 pb-12 mt-auto">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center gap-3 mb-8">
+              <div
+                class="flex h-9 w-9 items-center justify-center rounded-md bg-sky-700 text-white"
+              >
+                <span class="material-symbols-outlined text-[20px]">analytics</span>
+              </div>
+              <span
+                class="text-xl md:text-2xl font-extrabold tracking-tight uppercase text-white"
+              >
+                OBSERVATORIO <span class="text-sky-400">CR</span>
+              </span>
+            </div>
+            <p class="text-slate-400 text-base leading-relaxed max-w-md">
+              Plataforma independiente dedicada al monitoreo técnico y la
+              visualización de datos gubernamentales en Costa Rica. Fomentamos
+              una cultura de transparencia y rendición de cuentas basada en
+              hechos.
+            </p>
+          </div>
+          <div>
+            <h5
+              class="font-bold text-sm mb-8 uppercase tracking-widest text-white/90"
+            >
+              Recursos
+            </h5>
+            <ul class="space-y-4 text-sm text-slate-400 font-medium">
+              <li><a class="hover:text-primary transition-colors" href="https://github.com/Acamacho20027/ObservatorioDatosPublicos" target="_blank" rel="noopener noreferrer">Repositorio GitHub</a></li>
+              <li><a class="hover:text-primary transition-colors" href="documentacion.html">API Documentation</a></li>
+              <li><a class="hover:text-primary transition-colors" href="datasets.html">Datasets Crudos</a></li>
+              <li><a class="hover:text-primary transition-colors text-sky-400" href="glosario.html">Glosario Técnico</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5
+              class="font-bold text-sm mb-8 uppercase tracking-widest text-white/90"
+            >
+              Legal
+            </h5>
+            <ul class="space-y-4 text-sm text-slate-400 font-medium">
+              <li><a class="hover:text-primary transition-colors" href="#">Términos de Uso</a></li>
+              <li><a class="hover:text-primary transition-colors" href="#">Privacidad</a></li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] text-slate-500 uppercase tracking-[0.2em] font-bold"
+        >
+          <p>© 2026 Observatorio de Datos Públicos – Costa Rica</p>
+          <div class="flex gap-8">
+            <a
+              class="hover:text-white transition-colors"
+              href="https://www.linkedin.com/in/andr%C3%A9s-camacho-s%C3%A1nchez-672b7b286"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            <a
+              class="hover:text-white transition-colors"
+              href="https://acamacho20027.github.io/PerfilAndresCamachoSanchez/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Portfolio
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
