@@ -60,6 +60,7 @@ ObservatorioDatosPublicos/
 │   └── styles.css
 ├── views/
 │   ├── analisis.html
+│   ├── bitacora.html
 │   ├── datasets.html
 │   ├── documentacion.html
 │   ├── exploracion.html
@@ -311,6 +312,7 @@ Después del despliegue:
 ## Páginas del Sitio
 
 - **Inicio** (`index.html`): Página principal con información general y módulos de análisis
+- **Inicio** (`index.html`): Página principal con información general y módulos de análisis
 - **Análisis** (`analisis.html`): Visualización de indicadores por área temática
 - **Metodología** (`metodologia.html`): Descripción de los métodos y criterios utilizados
 - **Explorar Análisis** (`exploracion.html`): Herramienta interactiva para cargar y analizar archivos propios
@@ -318,6 +320,7 @@ Después del despliegue:
 - **Datasets Crudos** (`datasets.html`): Listado de conjuntos de datos disponibles
 - **Glosario Técnico** (`glosario.html`): Definiciones de términos técnicos utilizados
 - **Preguntas Frecuentes** (`preguntas.html`): Respuestas a las preguntas más comunes sobre el observatorio
+- **Bitácora de Errores** (`bitacora.html`): Registro público de errores, limitaciones y correcciones identificadas en las fuentes de datos gubernamentales
 
 ## Contribuciones
 
