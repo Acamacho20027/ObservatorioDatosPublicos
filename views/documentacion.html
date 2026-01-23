@@ -110,6 +110,12 @@
                 <a href="#visualizaciones" class="block text-sm text-slate-600 hover:text-sky-700 transition-colors py-2">
                   Tipos de Visualizaciones
                 </a>
+                <a href="#tipos-datos" class="block text-sm text-slate-600 hover:text-sky-700 transition-colors py-2">
+                  Tipos de Datos
+                </a>
+                <a href="#agregaciones" class="block text-sm text-slate-600 hover:text-sky-700 transition-colors py-2">
+                  Agregaciones
+                </a>
                 <a href="#ejemplos" class="block text-sm text-slate-600 hover:text-sky-700 transition-colors py-2">
                   Ejemplos de Uso
                 </a>
@@ -204,9 +210,9 @@
                   <h2 class="text-2xl font-bold text-slate-900">Tipos de Visualizaciones</h2>
                 </div>
                 <p class="text-slate-600 leading-relaxed mb-6">
-                  El sistema soporta tres tipos de gráficos para visualizar sus datos:
+                  El sistema soporta seis tipos de gráficos para visualizar sus datos:
                 </p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                   <div class="bg-slate-50 rounded-lg p-6 border border-slate-200">
                     <div class="flex items-center gap-2 mb-3">
                       <span class="material-symbols-outlined text-sky-700">bar_chart</span>
@@ -234,6 +240,150 @@
                       Útil para mostrar proporciones o distribuciones porcentuales entre categorías.
                     </p>
                   </div>
+                  <div class="bg-slate-50 rounded-lg p-6 border border-slate-200">
+                    <div class="flex items-center gap-2 mb-3">
+                      <span class="material-symbols-outlined text-sky-700">scatter_plot</span>
+                      <h3 class="font-bold text-slate-900">Gráfico de Dispersión</h3>
+                    </div>
+                    <p class="text-sm text-slate-600">
+                      Ideal para identificar relaciones y correlaciones entre dos variables numéricas.
+                    </p>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-6 border border-slate-200">
+                    <div class="flex items-center gap-2 mb-3">
+                      <span class="material-symbols-outlined text-sky-700">area_chart</span>
+                      <h3 class="font-bold text-slate-900">Gráfico de Área</h3>
+                    </div>
+                    <p class="text-sm text-slate-600">
+                      Similar a líneas pero con el área bajo la curva rellena, útil para mostrar acumulación de valores.
+                    </p>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-6 border border-slate-200">
+                    <div class="flex items-center gap-2 mb-3">
+                      <span class="material-symbols-outlined text-sky-700">stacked_line_chart</span>
+                      <h3 class="font-bold text-slate-900">Gráfico Combinado</h3>
+                    </div>
+                    <p class="text-sm text-slate-600">
+                      Combina barras y líneas en un solo gráfico para comparar múltiples métricas simultáneamente.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="bg-sky-50 rounded-lg p-6 border-l-4 border-sky-700 mb-6">
+                  <h3 class="font-bold text-slate-900 mb-3">Características Avanzadas</h3>
+                  <ul class="space-y-2 text-sm text-slate-700">
+                    <li class="flex items-start gap-2">
+                      <span class="material-symbols-outlined text-sky-700 text-lg">check_circle</span>
+                      <span><strong>Detección automática de tipos:</strong> El sistema detecta automáticamente si una columna es numérica, texto o fecha.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="material-symbols-outlined text-sky-700 text-lg">check_circle</span>
+                      <span><strong>Agregaciones:</strong> Suma, promedio, máximo, mínimo y conteo de valores.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="material-symbols-outlined text-sky-700 text-lg">check_circle</span>
+                      <span><strong>Agrupación de fechas:</strong> Agrupe datos por año, mes o trimestre automáticamente.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="material-symbols-outlined text-sky-700 text-lg">check_circle</span>
+                      <span><strong>Filtros avanzados:</strong> Filtre datos por igual, contiene, mayor que o menor que.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="material-symbols-outlined text-sky-700 text-lg">check_circle</span>
+                      <span><strong>Exportación:</strong> Descargue gráficos como imágenes PNG o exporte datos procesados a CSV.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="bg-amber-50 border-l-4 border-amber-500 rounded-lg p-4">
+                  <p class="text-sm text-amber-800">
+                    <strong>Límite de archivo:</strong> El tamaño máximo permitido es de 50MB. Para archivos más grandes, considere dividirlos en múltiples archivos.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Tipos de Datos -->
+            <section id="tipos-datos" class="scroll-mt-24">
+              <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+                <div class="flex items-center gap-3 mb-6">
+                  <span class="material-symbols-outlined text-sky-700 text-3xl">category</span>
+                  <h2 class="text-2xl font-bold text-slate-900">Tipos de Datos Soportados</h2>
+                </div>
+                <p class="text-slate-600 leading-relaxed mb-6">
+                  El sistema detecta automáticamente el tipo de dato de cada columna para optimizar el análisis y la visualización:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                  <div class="bg-slate-50 rounded-lg p-6 border border-slate-200">
+                    <div class="flex items-center gap-2 mb-3">
+                      <span class="material-symbols-outlined text-sky-700">123</span>
+                      <h3 class="font-bold text-slate-900">Numéricos</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-3">
+                      Valores numéricos (enteros o decimales). Se detectan automáticamente y solo aparecen en el selector del eje Y.
+                    </p>
+                    <p class="text-xs text-slate-500 italic">Ejemplo: 123, 45.67, -10.5</p>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-6 border border-slate-200">
+                    <div class="flex items-center gap-2 mb-3">
+                      <span class="material-symbols-outlined text-sky-700">text_fields</span>
+                      <h3 class="font-bold text-slate-900">Texto</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-3">
+                      Cadenas de texto y categorías. Ideales para el eje X o para filtros.
+                    </p>
+                    <p class="text-xs text-slate-500 italic">Ejemplo: "San José", "Categoría A"</p>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-6 border border-slate-200">
+                    <div class="flex items-center gap-2 mb-3">
+                      <span class="material-symbols-outlined text-sky-700">event</span>
+                      <h3 class="font-bold text-slate-900">Fechas</h3>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-3">
+                      Fechas en varios formatos. Permiten agrupación por año, mes o trimestre.
+                    </p>
+                    <p class="text-xs text-slate-500 italic">Ejemplo: 2024-01-15, 15/01/2024</p>
+                  </div>
+                </div>
+                <div class="bg-slate-50 rounded-lg p-4 border-l-4 border-sky-700">
+                  <p class="text-sm text-slate-700">
+                    <strong>Nota:</strong> El sistema analiza una muestra de los datos para determinar el tipo. Si una columna contiene principalmente números, se clasificará como numérica.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Agregaciones -->
+            <section id="agregaciones" class="scroll-mt-24">
+              <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+                <div class="flex items-center gap-3 mb-6">
+                  <span class="material-symbols-outlined text-sky-700 text-3xl">functions</span>
+                  <h2 class="text-2xl font-bold text-slate-900">Agregaciones Disponibles</h2>
+                </div>
+                <p class="text-slate-600 leading-relaxed mb-6">
+                  Cuando agrupa datos por categorías, puede aplicar diferentes funciones de agregación a los valores numéricos:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                    <h3 class="font-bold text-slate-900 mb-2">Suma</h3>
+                    <p class="text-sm text-slate-600">Suma todos los valores del grupo. Útil para totales acumulados.</p>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                    <h3 class="font-bold text-slate-900 mb-2">Promedio</h3>
+                    <p class="text-sm text-slate-600">Calcula el promedio (media aritmética) de los valores del grupo.</p>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                    <h3 class="font-bold text-slate-900 mb-2">Máximo</h3>
+                    <p class="text-sm text-slate-600">Obtiene el valor más alto dentro del grupo.</p>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                    <h3 class="font-bold text-slate-900 mb-2">Mínimo</h3>
+                    <p class="text-sm text-slate-600">Obtiene el valor más bajo dentro del grupo.</p>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-4 border border-slate-200 md:col-span-2">
+                    <h3 class="font-bold text-slate-900 mb-2">Conteo</h3>
+                    <p class="text-sm text-slate-600">Cuenta el número de registros en cada grupo. Disponible como opción especial en el eje Y sin necesidad de una columna numérica.</p>
+                  </div>
                 </div>
               </div>
             </section>
@@ -249,20 +399,37 @@
                   <div class="border-l-4 border-sky-700 pl-6">
                     <h3 class="font-bold text-slate-900 mb-2">Ejemplo 1: Análisis de Datos Educativos</h3>
                     <p class="text-slate-600 text-sm leading-relaxed mb-3">
-                      Cargue un archivo CSV con datos de matrícula por provincia. Configure el eje X con "provincia" y el eje Y con "matricula_primaria". Seleccione gráfico de barras para comparar visualmente las diferentes provincias.
+                      Cargue un archivo CSV con datos de matrícula por provincia. Configure el eje X con "provincia" y el eje Y con "matricula_primaria". Seleccione gráfico de barras y agregación "Suma" para comparar visualmente las diferentes provincias.
                     </p>
+                    <p class="text-xs text-slate-500 italic">💡 Tip: Use filtros para analizar solo provincias específicas o excluir filas con datos incompletos.</p>
                   </div>
                   <div class="border-l-4 border-emerald-600 pl-6">
-                    <h3 class="font-bold text-slate-900 mb-2">Ejemplo 2: Tendencias de Salud</h3>
+                    <h3 class="font-bold text-slate-900 mb-2">Ejemplo 2: Tendencias de Salud con Fechas</h3>
                     <p class="text-slate-600 text-sm leading-relaxed mb-3">
-                      Cargue un archivo JSON con datos de cobertura de vacunación por año. Use "anio" en el eje X y "cobertura_vacunacion" en el eje Y. Seleccione gráfico de líneas para visualizar la tendencia temporal.
+                      Cargue un archivo JSON con datos de cobertura de vacunación por fecha. Use "fecha" en el eje X (el sistema detectará automáticamente que es una fecha) y "cobertura_vacunacion" en el eje Y. Seleccione gráfico de líneas y agrupe por "Mes" para visualizar tendencias mensuales.
                     </p>
+                    <p class="text-xs text-slate-500 italic">💡 Tip: La agrupación de fechas permite analizar datos a diferentes niveles temporales (año, mes, trimestre).</p>
                   </div>
                   <div class="border-l-4 border-amber-600 pl-6">
-                    <h3 class="font-bold text-slate-900 mb-2">Ejemplo 3: Distribución por Categorías</h3>
+                    <h3 class="font-bold text-slate-900 mb-2">Ejemplo 3: Distribución Proporcional</h3>
                     <p class="text-slate-600 text-sm leading-relaxed mb-3">
                       Para ver la distribución porcentual de registros por provincia, configure "provincia" en el eje X y "Conteo de Registros" en el eje Y. Seleccione gráfico de torta para una representación proporcional.
                     </p>
+                    <p class="text-xs text-slate-500 italic">💡 Tip: El conteo de registros no requiere una columna numérica, cuenta automáticamente los registros por categoría.</p>
+                  </div>
+                  <div class="border-l-4 border-purple-600 pl-6">
+                    <h3 class="font-bold text-slate-900 mb-2">Ejemplo 4: Análisis de Correlación</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-3">
+                      Use un gráfico de dispersión para identificar relaciones entre dos variables numéricas. Configure una variable numérica en el eje X y otra en el eje Y. Esto es útil para detectar correlaciones o patrones en los datos.
+                    </p>
+                    <p class="text-xs text-slate-500 italic">💡 Tip: Los gráficos de dispersión muestran cada punto de datos individualmente, ideal para análisis estadísticos.</p>
+                  </div>
+                  <div class="border-l-4 border-rose-600 pl-6">
+                    <h3 class="font-bold text-slate-900 mb-2">Ejemplo 5: Exportación de Resultados</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-3">
+                      Después de generar una visualización, puede exportar el gráfico como imagen PNG usando el botón "Exportar imagen". También puede exportar los datos procesados (incluyendo filtros aplicados) como CSV usando el botón "Datos".
+                    </p>
+                    <p class="text-xs text-slate-500 italic">💡 Tip: Los datos exportados incluyen solo los registros visibles después de aplicar filtros y búsquedas.</p>
                   </div>
                 </div>
               </div>

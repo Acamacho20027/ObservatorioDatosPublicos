@@ -95,6 +95,11 @@
             Privacidad Garantizada: El procesamiento de archivos ocurre exclusivamente en su navegador. Sus datos nunca son cargados a nuestros servidores.
           </p>
         </div>
+        <!-- Mensaje de éxito -->
+        <div id="success-message" class="hidden bg-emerald-50 border border-emerald-200 rounded-xl p-4 flex items-center gap-3">
+          <span class="material-symbols-outlined text-emerald-700">check_circle</span>
+          <p class="text-sm text-emerald-800 font-medium" id="success-text"></p>
+        </div>
       </section>
 
       <!-- Upload Section -->
@@ -127,19 +132,66 @@
             <span>Seleccionar Archivo</span>
           </button>
           <p id="file-error" class="text-sm text-red-600 font-medium hidden"></p>
+          <!-- Indicador de carga -->
+          <div id="loading-indicator" class="hidden flex items-center gap-2 text-sky-700">
+            <div class="animate-spin rounded-full h-5 w-5 border-b-2 border-sky-700"></div>
+            <span class="text-sm font-medium">Procesando archivo...</span>
+          </div>
+          <!-- Barra de progreso -->
+          <div id="progress-bar-container" class="hidden w-full max-w-md">
+            <div class="w-full bg-slate-200 rounded-full h-2">
+              <div id="progress-bar" class="bg-sky-700 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+            </div>
+            <p id="progress-text" class="text-xs text-slate-600 mt-1 text-center">0%</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Estadísticas de Datos -->
+      <section id="stats-section" class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hidden">
+        <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <span class="material-symbols-outlined text-sky-700">analytics</span>
+          Estadísticas de Datos
+        </h3>
+        <div id="stats-content" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Se llena dinámicamente -->
+        </div>
+        <div id="missing-data-warning" class="mt-4 hidden bg-amber-50 border-l-4 border-amber-500 p-4 rounded">
+          <p class="text-sm text-amber-800">
+            <strong>Advertencia:</strong> Se detectaron valores faltantes en algunas columnas. Considere filtrar los datos incompletos.
+          </p>
         </div>
       </section>
 
       <!-- Data Preview & Config -->
       <section id="data-preview-section" class="space-y-6 hidden">
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between flex-wrap gap-4">
           <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
             <span class="material-symbols-outlined text-sky-700">table_view</span>
             Vista Previa de Datos
           </h3>
-          <span id="preview-count" class="text-xs font-semibold uppercase tracking-wider text-slate-500">
-            Mostrando 5 de 0 registros
-          </span>
+          <div class="flex items-center gap-4">
+            <!-- Búsqueda en vista previa -->
+            <input
+              type="text"
+              id="preview-search"
+              placeholder="Buscar..."
+              class="hidden text-sm border-slate-200 rounded-lg px-3 py-1.5 focus:ring-sky-700 focus:border-sky-700"
+            />
+            <span id="preview-count" class="text-xs font-semibold uppercase tracking-wider text-slate-500">
+              Mostrando 5 de 0 registros
+            </span>
+          </div>
+        </div>
+        <!-- Controles de paginación -->
+        <div id="pagination-controls" class="hidden flex items-center justify-between">
+          <button id="prev-page-btn" class="text-sm text-slate-600 hover:text-sky-700 disabled:opacity-50" disabled>
+            ← Anterior
+          </button>
+          <span id="page-info" class="text-sm text-slate-600">Página 1 de 1</span>
+          <button id="next-page-btn" class="text-sm text-slate-600 hover:text-sky-700 disabled:opacity-50" disabled>
+            Siguiente →
+          </button>
         </div>
         <div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
           <div class="overflow-x-auto">
@@ -187,28 +239,128 @@
             <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
               Tipo de Gráfico
             </label>
-            <div class="flex gap-2">
+            <div class="grid grid-cols-2 gap-2">
               <button
                 data-chart-type="bar"
-                class="chart-type-btn p-2 rounded-lg bg-sky-700 text-white flex-1 flex items-center justify-center gap-2 text-sm font-medium hover:bg-sky-800 transition-colors"
+                class="chart-type-btn p-2 rounded-lg bg-sky-700 text-white flex items-center justify-center gap-2 text-sm font-medium hover:bg-sky-800 transition-colors"
               >
                 <span class="material-symbols-outlined text-lg">bar_chart</span>
                 Barras
               </button>
               <button
                 data-chart-type="line"
-                class="chart-type-btn p-2 rounded-lg bg-slate-100 text-slate-900 flex-1 flex items-center justify-center gap-2 text-sm font-medium hover:bg-slate-200 transition-colors"
+                class="chart-type-btn p-2 rounded-lg bg-slate-100 text-slate-900 flex items-center justify-center gap-2 text-sm font-medium hover:bg-slate-200 transition-colors"
               >
                 <span class="material-symbols-outlined text-lg">show_chart</span>
                 Línea
               </button>
               <button
                 data-chart-type="pie"
-                class="chart-type-btn p-2 rounded-lg bg-slate-100 text-slate-900 flex-1 flex items-center justify-center gap-2 text-sm font-medium hover:bg-slate-200 transition-colors"
+                class="chart-type-btn p-2 rounded-lg bg-slate-100 text-slate-900 flex items-center justify-center gap-2 text-sm font-medium hover:bg-slate-200 transition-colors"
               >
                 <span class="material-symbols-outlined text-lg">pie_chart</span>
                 Torta
               </button>
+              <button
+                data-chart-type="scatter"
+                class="chart-type-btn p-2 rounded-lg bg-slate-100 text-slate-900 flex items-center justify-center gap-2 text-sm font-medium hover:bg-slate-200 transition-colors"
+              >
+                <span class="material-symbols-outlined text-lg">scatter_plot</span>
+                Dispersión
+              </button>
+              <button
+                data-chart-type="area"
+                class="chart-type-btn p-2 rounded-lg bg-slate-100 text-slate-900 flex items-center justify-center gap-2 text-sm font-medium hover:bg-slate-200 transition-colors"
+              >
+                <span class="material-symbols-outlined text-lg">area_chart</span>
+                Área
+              </button>
+              <button
+                data-chart-type="combo"
+                class="chart-type-btn p-2 rounded-lg bg-slate-100 text-slate-900 flex items-center justify-center gap-2 text-sm font-medium hover:bg-slate-200 transition-colors"
+              >
+                <span class="material-symbols-outlined text-lg">stacked_line_chart</span>
+                Combinado
+              </button>
+            </div>
+          </div>
+          <div class="flex-1 min-w-[200px]">
+            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+              Agregación
+            </label>
+            <select
+              id="aggregation-select"
+              class="w-full bg-white border-slate-200 rounded-lg text-sm py-2.5 px-4 focus:ring-sky-700 focus:border-sky-700"
+            >
+              <option value="sum">Suma</option>
+              <option value="avg">Promedio</option>
+              <option value="max">Máximo</option>
+              <option value="min">Mínimo</option>
+              <option value="count">Conteo</option>
+            </select>
+          </div>
+          <div class="flex-1 min-w-[200px] hidden" id="date-grouping-container">
+            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+              Agrupar Fechas
+            </label>
+            <select
+              id="date-grouping-select"
+              class="w-full bg-white border-slate-200 rounded-lg text-sm py-2.5 px-4 focus:ring-sky-700 focus:border-sky-700"
+            >
+              <option value="none">Sin agrupación</option>
+              <option value="year">Por Año</option>
+              <option value="month">Por Mes</option>
+              <option value="quarter">Por Trimestre</option>
+            </select>
+          </div>
+          <div class="w-full">
+            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+              Filtros
+            </label>
+            <div class="flex gap-2 items-end">
+              <select
+                id="filter-column-select"
+                class="flex-1 bg-white border-slate-200 rounded-lg text-sm py-2.5 px-4 focus:ring-sky-700 focus:border-sky-700"
+              >
+                <option value="">Seleccionar columna para filtrar</option>
+              </select>
+              <select
+                id="filter-operator-select"
+                class="bg-white border-slate-200 rounded-lg text-sm py-2.5 px-4 focus:ring-sky-700 focus:border-sky-700"
+              >
+                <option value="equals">Igual a</option>
+                <option value="contains">Contiene</option>
+                <option value="greater">Mayor que</option>
+                <option value="less">Menor que</option>
+              </select>
+              <input
+                type="text"
+                id="filter-value-input"
+                placeholder="Valor"
+                class="flex-1 bg-white border-slate-200 rounded-lg text-sm py-2.5 px-4 focus:ring-sky-700 focus:border-sky-700"
+              />
+              <button
+                id="apply-filter-btn"
+                class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors"
+              >
+                Aplicar
+              </button>
+              <button
+                id="clear-filter-btn"
+                class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors hidden"
+              >
+                Limpiar
+              </button>
+            </div>
+            <div class="mt-2">
+              <label class="flex items-center gap-2 text-sm text-slate-600">
+                <input
+                  type="checkbox"
+                  id="filter-incomplete-rows"
+                  class="rounded border-slate-300 text-sky-700 focus:ring-sky-700"
+                />
+                <span>Filtrar filas con valores faltantes</span>
+              </label>
             </div>
           </div>
           <div class="w-full flex justify-end">
@@ -236,6 +388,22 @@
               </p>
             </div>
             <div class="flex items-center gap-4">
+              <button
+                id="export-chart-btn"
+                class="text-sky-700 hover:bg-sky-50 p-2 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium"
+                title="Descargar gráfico"
+              >
+                <span class="material-symbols-outlined">download</span>
+                Exportar imagen
+              </button>
+              <button
+                id="export-data-btn"
+                class="text-sky-700 hover:bg-sky-50 p-2 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium"
+                title="Exportar datos"
+              >
+                <span class="material-symbols-outlined">file_download</span>
+                Datos
+              </button>
               <button
                 id="reset-btn"
                 class="text-sky-700 hover:bg-sky-50 p-2 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium"

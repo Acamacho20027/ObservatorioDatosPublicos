@@ -149,3 +149,121 @@ select:focus-visible {
     transform: translateY(0) scale(1);
   }
 }
+
+/* Estilos para indicadores de carga y progreso */
+#loading-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#progress-bar-container {
+  width: 100%;
+  max-width: 28rem;
+}
+
+#progress-bar {
+  transition: width 0.3s ease;
+}
+
+/* Estilos para mensajes de éxito */
+#success-message {
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* Estilos para estadísticas */
+#stats-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+/* Estilos para paginación */
+#pagination-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 1rem;
+}
+
+#pagination-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Estilos para búsqueda */
+#preview-search {
+  min-width: 200px;
+}
+
+/* Estilos para tabla ordenable */
+#preview-table th {
+  user-select: none;
+  position: relative;
+}
+
+#preview-table th:hover {
+  background-color: #f1f5f9;
+}
+
+/* Estilos para resaltado de búsqueda */
+mark {
+  background-color: #fef08a;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+}
+
+/* Estilos para filtros */
+#filter-column-select,
+#filter-operator-select,
+#filter-value-input {
+  min-width: 150px;
+}
+
+/* Estilos para agrupación de fechas */
+#date-grouping-container {
+  transition: all 0.3s ease;
+}
+
+/* Mejoras de accesibilidad adicionales */
+[role="button"],
+button,
+select,
+input {
+  cursor: pointer;
+}
+
+button:disabled,
+select:disabled,
+input:disabled {
+  cursor: not-allowed;
+}
+
+/* Animación para elementos que aparecen */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* Tooltips básicos (si se agregan) */
+[title] {
+  position: relative;
+}
+
+/* Responsive mejorado */
+@media (max-width: 768px) {
+  #stats-content {
+    grid-template-columns: 1fr;
+  }
+
+  #pagination-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .chart-type-btn {
+    font-size: 0.75rem;
+    padding: 0.5rem;
+  }
+}
