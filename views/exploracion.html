@@ -3,8 +3,58 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Explorar Análisis de Datos - Observatorio de Datos Públicos</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Explorar Análisis de Datos - Herramienta de Visualización | Observatorio CR</title>
+    <meta name="title" content="Explorar Análisis de Datos - Herramienta de Visualización | Observatorio CR" />
+    <meta name="description" content="Herramienta interactiva para cargar y analizar archivos CSV y JSON. Visualice sus datos con gráficos interactivos, filtros avanzados y exportación de resultados." />
+    <meta name="keywords" content="análisis de datos, visualización, CSV, JSON, gráficos, datos públicos, Costa Rica, herramienta de análisis" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://observatorio-datos-publicos-cr.netlify.app/views/exploracion.html" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://observatorio-datos-publicos-cr.netlify.app/views/exploracion.html" />
+    <meta property="og:title" content="Explorar Análisis de Datos - Observatorio de Datos Públicos CR" />
+    <meta property="og:description" content="Herramienta interactiva para cargar y analizar archivos CSV y JSON con visualizaciones avanzadas." />
+    <meta property="og:image" content="https://observatorio-datos-publicos-cr.netlify.app/assets/og-image.png" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Explorar Análisis de Datos - Observatorio de Datos Públicos CR" />
+    <meta name="twitter:description" content="Herramienta interactiva para cargar y analizar archivos CSV y JSON con visualizaciones avanzadas." />
+    <meta name="twitter:image" content="https://observatorio-datos-publicos-cr.netlify.app/assets/og-image.png" />
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    
+    <!-- Structured Data - WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Explorar Análisis de Datos",
+      "applicationCategory": "DataAnalysisApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Herramienta interactiva para cargar y analizar archivos CSV y JSON con visualizaciones avanzadas",
+      "url": "https://observatorio-datos-publicos-cr.netlify.app/views/exploracion.html",
+      "featureList": [
+        "Carga de archivos CSV y JSON",
+        "Detección automática de tipos de datos",
+        "Seis tipos de gráficos (barras, líneas, torta, dispersión, área, combinado)",
+        "Filtros avanzados",
+        "Agregaciones (suma, promedio, máximo, mínimo, conteo)",
+        "Exportación de gráficos y datos"
+      ]
+    }
+    </script>
 
     <!-- Tailwind CSS -->
     <script src="../Js/tailwind-theme.js"></script>
@@ -21,13 +71,17 @@
     <link rel="stylesheet" href="../Styles/styles.css" />
     <link rel="stylesheet" href="../Styles/exploracion.css" />
 
-    <!-- Chart.js para visualización de datos -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chart.js para visualización de datos - Carga diferida -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    
+    <!-- Google Analytics -->
+    <script src="../Js/analytics.js"></script>
   </head>
 
   <body class="bg-white text-slate-900 antialiased min-h-screen flex flex-col">
     <!-- Header Navigation -->
     <header
+      role="banner"
       class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60"
     >
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -497,24 +551,25 @@
             <h5
               class="font-bold text-sm mb-8 uppercase tracking-widest text-white/90"
             >
-              Recursos
+              RECURSOS
             </h5>
             <ul class="space-y-4 text-sm text-slate-400 font-medium">
-              <li><a class="hover:text-sky-400 transition-colors" href="https://github.com/Acamacho20027/ObservatorioDatosPublicos" target="_blank" rel="noopener noreferrer">Repositorio GitHub</a></li>
-              <li><a class="hover:text-sky-400 transition-colors" href="documentacion.html">API Documentation</a></li>
-              <li><a class="hover:text-sky-400 transition-colors" href="datasets.html">Datasets Crudos</a></li>
-              <li><a class="hover:text-sky-400 transition-colors" href="glosario.html">Glosario Técnico</a></li>
+              <li><a class="hover:text-primary transition-colors" href="https://github.com/Acamacho20027/ObservatorioDatosPublicos" target="_blank" rel="noopener noreferrer">Repositorio GitHub</a></li>
+              <li><a class="hover:text-primary transition-colors" href="documentacion.html">API Documentation</a></li>
+              <li><a class="hover:text-primary transition-colors" href="datasets.html">Datasets Crudos</a></li>
+              <li><a class="hover:text-primary transition-colors" href="glosario.html">Glosario Técnico</a></li>
+              <li><a class="hover:text-primary transition-colors" href="preguntas.html">Preguntas Frecuentes</a></li>
             </ul>
           </div>
           <div>
             <h5
               class="font-bold text-sm mb-8 uppercase tracking-widest text-white/90"
             >
-              Legal
+              LEGAL
             </h5>
             <ul class="space-y-4 text-sm text-slate-400 font-medium">
-              <li><a class="hover:text-sky-400 transition-colors" href="#">Términos de Uso</a></li>
-              <li><a class="hover:text-sky-400 transition-colors" href="#">Privacidad</a></li>
+              <li><a class="hover:text-primary transition-colors" href="#">Términos de Uso</a></li>
+              <li><a class="hover:text-primary transition-colors" href="#">Privacidad</a></li>
             </ul>
           </div>
         </div>

@@ -4,7 +4,7 @@ Plataforma independiente dedicada al monitoreo técnico y la visualización de d
 
 ## Descripción
 
-El Observatorio de Datos Públicos es una plataforma web estática que centraliza y procesa información oficial de Costa Rica para ofrecer una visión clara del estado del país en áreas críticas como educación, salud e infraestructura. El proyecto está diseñado para ser completamente frontend, compatible con GitHub Pages, y permite a los usuarios cargar y analizar archivos CSV y JSON localmente en sus navegadores.
+El Observatorio de Datos Públicos es una plataforma web estática que centraliza y procesa información oficial de Costa Rica para ofrecer una visión clara del estado del país en áreas críticas como educación, salud e infraestructura. El proyecto está diseñado para ser completamente frontend, optimizado para Netlify, y permite a los usuarios cargar y analizar archivos CSV y JSON localmente en sus navegadores.
 
 ### Misión
 
@@ -46,6 +46,7 @@ ObservatorioDatosPublicos/
 │   └── salud.json
 ├── Js/
 │   ├── analisis.js
+│   ├── analytics.js
 │   ├── exploracion.js
 │   ├── main.js
 │   ├── metodologia.js
@@ -56,14 +57,18 @@ ObservatorioDatosPublicos/
 │   ├── exploracion.css
 │   ├── metodologia.css
 │   └── styles.css
-└── views/
-    ├── analisis.html
-    ├── datasets.html
-    ├── documentacion.html
-    ├── exploracion.html
-    ├── glosario.html
-    ├── index.html
-    └── metodologia.html
+├── views/
+│   ├── analisis.html
+│   ├── datasets.html
+│   ├── documentacion.html
+│   ├── exploracion.html
+│   ├── glosario.html
+│   ├── index.html
+│   ├── metodologia.html
+│   └── preguntas.html
+├── netlify.toml
+├── robots.txt
+└── sitemap.xml
 ```
 
 ## Tecnologías Utilizadas
@@ -72,7 +77,9 @@ ObservatorioDatosPublicos/
 - **CSS3 / Tailwind CSS**: Diseño responsive y moderno
 - **JavaScript (ES6+)**: Lógica de procesamiento y visualización
 - **Chart.js**: Biblioteca para visualización de datos
-- **GitHub Pages**: Hosting estático
+- **Netlify**: Hosting estático con CDN global y despliegue automático
+- **Google Analytics 4**: Seguimiento y análisis de tráfico
+- **Schema.org**: Structured data para mejor SEO y rich snippets
 
 ## Instalación y Uso
 
@@ -96,9 +103,19 @@ cd ObservatorioDatosPublicos
 
 3. Acceder a `http://localhost:8000/views/index.html` en tu navegador
 
-### Uso en GitHub Pages
+### Uso en Netlify
 
-El proyecto está configurado para funcionar directamente en GitHub Pages. Simplemente habilita GitHub Pages en la configuración del repositorio y selecciona la rama principal.
+El proyecto está optimizado para Netlify. Para desplegar:
+
+1. Conecta tu repositorio de GitHub a Netlify
+2. Netlify detectará automáticamente la configuración en `netlify.toml`
+3. El sitio se desplegará automáticamente en cada push
+
+**Configuración adicional requerida:**
+- Actualiza las URLs en `sitemap.xml` con tu dominio de Netlify
+- Configura Google Analytics (ver sección "Configuración de Google Analytics" más abajo)
+- Crea y sube la imagen Open Graph (`assets/og-image.png`)
+- Verifica tu sitio en Google Search Console (ver sección "SEO y Visibilidad Web" más abajo)
 
 ## Documentación de la API
 
@@ -171,6 +188,129 @@ Debe ser un array de objetos, donde cada objeto representa un registro:
 
 Para más detalles, consulta la [Documentación Técnica](views/documentacion.html).
 
+## Configuración de Google Analytics
+
+Este proyecto incluye soporte para Google Analytics 4. Para habilitarlo, sigue estos pasos:
+
+### Pasos de Configuración
+
+1. **Crear una cuenta de Google Analytics 4**
+   - Ve a [Google Analytics](https://analytics.google.com/)
+   - Crea una nueva propiedad para tu sitio web
+   - Obtén tu Measurement ID (formato: `G-XXXXXXXXXX`)
+
+2. **Configurar el ID en el proyecto**
+   - Abre el archivo `Js/analytics.js`
+   - Reemplaza `G-XXXXXXXXXX` en la línea 4 con tu Measurement ID real:
+   ```javascript
+   const GA_MEASUREMENT_ID = 'G-TU-ID-REAL-AQUI';
+   ```
+
+3. **Verificar la instalación**
+   - Despliega el sitio en Netlify
+   - Visita tu sitio y abre las herramientas de desarrollador
+   - Ve a la pestaña "Network" y busca solicitudes a `google-analytics.com` o `googletagmanager.com`
+   - También puedes usar la extensión "Google Analytics Debugger" para Chrome
+
+### Eventos Personalizados
+
+El código ya incluye seguimiento automático de:
+- Clics en enlaces de navegación
+- Descargas de archivos
+- Generación de gráficos (en exploracion.html)
+
+### Notas Importantes
+
+- El código de Analytics solo se carga si has configurado un ID válido (diferente de `G-XXXXXXXXXX`)
+- Los datos se procesan de forma anónima (`anonymize_ip: true`)
+- No se rastrean datos personales de los usuarios
+- Todos los datos se procesan localmente en el navegador del usuario
+
+## SEO y Visibilidad Web
+
+### Mejoras Implementadas
+
+El proyecto incluye optimizaciones completas de SEO para mejorar la visibilidad en buscadores:
+
+#### Archivos de Configuración
+- `sitemap.xml` - Mapa del sitio para buscadores
+- `robots.txt` - Instrucciones para crawlers
+- `netlify.toml` - Configuración de headers y redirecciones
+
+#### Meta Tags y SEO Básico
+- Meta descriptions únicas en todas las páginas
+- Meta keywords relevantes
+- Open Graph tags (Facebook, LinkedIn)
+- Twitter Cards
+- Canonical URLs en cada página
+- Meta viewport (responsive)
+
+#### Structured Data (Schema.org)
+- Organization schema en index.html
+- WebSite schema en index.html
+- DataCatalog schema en index.html y datasets.html
+- WebApplication schema en exploracion.html
+- CollectionPage schema en analisis.html
+- TechArticle schema en documentacion.html
+- FAQPage schema en preguntas.html
+
+#### Navegación y Estructura
+- Roles ARIA (banner, main, navigation)
+- Estructura semántica HTML5
+- Enlaces descriptivos (no "clic aquí")
+
+#### Performance
+- Chart.js con carga diferida (defer)
+- Headers de caché en netlify.toml
+- Compresión de assets configurada
+
+### Acciones Requeridas para SEO
+
+#### 1. Actualizar URLs en sitemap.xml
+Edita `sitemap.xml` y reemplaza `https://observatorio-datos-publicos-cr.netlify.app` con tu URL real de Netlify.
+
+#### 2. Crear Imagen Open Graph
+Crea una imagen de 1200x630px para compartir en redes sociales:
+- Nombre: `og-image.png`
+- Ubicación: `assets/og-image.png`
+- Contenido sugerido: Logo del observatorio + texto "Observatorio de Datos Públicos - Costa Rica"
+
+#### 3. Configurar Google Search Console
+1. Ve a [Google Search Console](https://search.google.com/search-console)
+2. Agrega tu propiedad (URL del sitio)
+3. Verifica la propiedad usando uno de los métodos disponibles
+4. Envía el sitemap: `https://tu-dominio.netlify.app/sitemap.xml`
+
+#### 4. Optimizar Imágenes
+- Agrega `alt` text descriptivo a todas las imágenes
+- Considera usar formatos modernos (WebP) para mejor compresión
+- Optimiza el tamaño de las imágenes
+
+#### 5. Revisar Contenido
+- Asegúrate de que todos los enlaces funcionen
+- Verifica que los textos sean descriptivos y relevantes
+- Revisa que las palabras clave estén presentes de forma natural
+
+#### 6. Testing
+- Usa [Google Rich Results Test](https://search.google.com/test/rich-results) para verificar structured data
+- Usa [PageSpeed Insights](https://pagespeed.web.dev/) para verificar performance
+- Usa [Mobile-Friendly Test](https://search.google.com/test/mobile-friendly) para verificar responsive
+
+### Monitoreo Continuo
+
+Después del despliegue:
+1. Monitorea Google Search Console para errores de indexación
+2. Revisa Google Analytics para entender el tráfico
+3. Actualiza el sitemap cuando agregues nuevas páginas
+4. Mantén el contenido actualizado y relevante
+
+### Recursos Útiles
+
+- [Google Search Central](https://developers.google.com/search)
+- [Schema.org Documentation](https://schema.org/)
+- [Open Graph Protocol](https://ogp.me/)
+- [Twitter Cards](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards)
+
 ## Páginas del Sitio
 
 - **Inicio** (`index.html`): Página principal con información general y módulos de análisis
@@ -180,6 +320,7 @@ Para más detalles, consulta la [Documentación Técnica](views/documentacion.ht
 - **Documentación** (`documentacion.html`): Guía técnica completa de la API
 - **Datasets Crudos** (`datasets.html`): Listado de conjuntos de datos disponibles
 - **Glosario Técnico** (`glosario.html`): Definiciones de términos técnicos utilizados
+- **Preguntas Frecuentes** (`preguntas.html`): Respuestas a las preguntas más comunes sobre el observatorio
 
 ## Contribuciones
 

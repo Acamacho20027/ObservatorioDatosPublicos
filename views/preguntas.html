@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Preguntas Frecuentes - Observatorio de Datos Públicos CR</title>
+    <meta name="title" content="Preguntas Frecuentes - Observatorio de Datos Públicos CR" />
+    <meta name="description" content="Respuestas a las preguntas más comunes sobre el Observatorio de Datos Públicos de Costa Rica. Información sobre uso, formatos de archivos y funcionalidades." />
+    <meta name="keywords" content="FAQ, preguntas frecuentes, ayuda, observatorio datos públicos, Costa Rica, guía de uso" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://observatorio-datos-publicos-cr.netlify.app/views/preguntas.html" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://observatorio-datos-publicos-cr.netlify.app/views/preguntas.html" />
+    <meta property="og:title" content="Preguntas Frecuentes - Observatorio de Datos Públicos CR" />
+    <meta property="og:description" content="Respuestas a las preguntas más comunes sobre el Observatorio de Datos Públicos de Costa Rica." />
+    <meta property="og:image" content="https://observatorio-datos-publicos-cr.netlify.app/assets/og-image.png" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Preguntas Frecuentes - Observatorio de Datos Públicos CR" />
+    <meta name="twitter:description" content="Respuestas a las preguntas más comunes sobre el Observatorio de Datos Públicos de Costa Rica." />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    
+    <!-- Tailwind CSS -->
+    <script src="../Js/tailwind-theme.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Styles/styles.css" />
+    
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es el Observatorio de Datos Públicos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El Observatorio de Datos Públicos es una plataforma independiente dedicada al monitoreo técnico y la visualización de datos gubernamentales en Costa Rica. Ofrecemos análisis de educación, salud e infraestructura basados en evidencia."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué formatos de archivo acepta la herramienta de exploración?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La herramienta acepta archivos CSV y JSON. Los archivos CSV deben tener encabezados en la primera fila, y los JSON deben ser arrays de objetos. El tamaño máximo permitido es de 50MB."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se almacenan mis datos en el servidor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Todos los datos se procesan localmente en su navegador. Sus archivos nunca se envían a nuestros servidores, garantizando total privacidad."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué tipos de gráficos puedo generar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Puede generar seis tipos de gráficos: barras, líneas, torta, dispersión, área y combinado. Cada tipo es ideal para diferentes tipos de análisis de datos."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Google Analytics -->
+    <script src="../Js/analytics.js"></script>
+  </head>
+
+  <body class="bg-white text-slate-900 antialiased min-h-screen flex flex-col">
+    <header
+      class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60"
+      role="banner"
+    >
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="text-sky-700" aria-hidden="true">
+              <span class="material-symbols-outlined text-3xl">analytics</span>
+            </div>
+            <a
+              href="index.html"
+              class="text-lg font-bold tracking-tight text-slate-900 uppercase"
+              >Observatorio <span class="text-sky-700">CR</span></a
+            >
+          </div>
+          <nav class="hidden md:flex items-center gap-8" role="navigation" aria-label="Navegación principal">
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="index.html"
+              >Inicio</a
+            >
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="analisis.html"
+              >Análisis</a
+            >
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="metodologia.html"
+              >Metodología</a
+            >
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="index.html#sobre"
+              >Sobre el Proyecto</a
+            >
+            <a
+              class="bg-sky-700 hover:bg-sky-800 text-white px-6 py-2 rounded-lg text-sm font-bold transition-all shadow-sm"
+              href="exploracion.html"
+            >
+              Explorar análisis
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main role="main" class="section-spacing flex-1">
+      <div class="mx-auto max-w-4xl px-6 lg:px-8">
+        <div class="mb-16 text-center">
+          <h1 class="text-4xl md:text-5xl font-black leading-tight tracking-tight text-slate-900 mb-6">
+            Preguntas Frecuentes
+          </h1>
+          <p class="text-lg text-slate-600 leading-relaxed">
+            Encuentra respuestas a las preguntas más comunes sobre el Observatorio de Datos Públicos de Costa Rica.
+          </p>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">¿Qué es el Observatorio de Datos Públicos?</h2>
+            <p class="text-slate-600 leading-relaxed">
+              El Observatorio de Datos Públicos es una plataforma independiente dedicada al monitoreo técnico y la visualización de datos gubernamentales en Costa Rica. Ofrecemos análisis de educación, salud e infraestructura basados en evidencia, permitiendo que tanto tomadores de decisiones como ciudadanía en general puedan monitorear el progreso nacional sin sesgos políticos.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">¿Qué formatos de archivo acepta la herramienta de exploración?</h2>
+            <p class="text-slate-600 leading-relaxed mb-4">
+              La herramienta acepta dos formatos de archivo:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-slate-600 ml-4 mb-4">
+              <li><strong>CSV:</strong> Archivos separados por comas con encabezados en la primera fila</li>
+              <li><strong>JSON:</strong> Arrays de objetos con propiedades clave-valor</li>
+            </ul>
+            <p class="text-slate-600 leading-relaxed">
+              El tamaño máximo permitido es de 50MB. Para archivos más grandes, considere dividirlos en múltiples archivos.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">¿Se almacenan mis datos en el servidor?</h2>
+            <p class="text-slate-600 leading-relaxed">
+              No. Todos los datos se procesan localmente en su navegador utilizando JavaScript. Sus archivos nunca se envían a nuestros servidores, garantizando total privacidad y seguridad. El procesamiento ocurre completamente en su dispositivo.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">¿Qué tipos de gráficos puedo generar?</h2>
+            <p class="text-slate-600 leading-relaxed mb-4">
+              Puede generar seis tipos de gráficos:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-slate-600 ml-4">
+              <li><strong>Barras:</strong> Ideal para comparar categorías</li>
+              <li><strong>Líneas:</strong> Perfecto para mostrar tendencias temporales</li>
+              <li><strong>Torta:</strong> Útil para mostrar proporciones</li>
+              <li><strong>Dispersión:</strong> Ideal para identificar correlaciones</li>
+              <li><strong>Área:</strong> Similar a líneas con área rellena</li>
+              <li><strong>Combinado:</strong> Combina barras y líneas en un solo gráfico</li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">¿Cómo funciona la detección automática de tipos de datos?</h2>
+            <p class="text-slate-600 leading-relaxed">
+              El sistema analiza una muestra de los datos para determinar automáticamente si una columna es numérica, de texto o fecha. Las columnas numéricas solo aparecen en el selector del eje Y, mientras que las columnas de texto y fechas pueden usarse en el eje X. Las fechas permiten agrupación automática por año, mes o trimestre.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">¿Puedo exportar mis visualizaciones?</h2>
+            <p class="text-slate-600 leading-relaxed">
+              Sí. Puede exportar los gráficos generados como imágenes PNG usando el botón "Exportar imagen". También puede exportar los datos procesados (incluyendo filtros aplicados) como archivo CSV usando el botón "Datos".
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">¿De dónde provienen los datos mostrados?</h2>
+            <p class="text-slate-600 leading-relaxed">
+              Los datos mostrados en los módulos de análisis provienen de fuentes públicas oficiales de Costa Rica, incluyendo el INEC, MEP, CCSS, BCCR, MOPT y otras instituciones gubernamentales. Todos los datos son de carácter público y están disponibles en repositorios de datos abiertos.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">¿El proyecto es de código abierto?</h2>
+            <p class="text-slate-600 leading-relaxed">
+              Sí. El proyecto es completamente de código abierto y está disponible en GitHub. Las metodologías de procesamiento y visualización son auditables, orientadas a la transparencia. Puede acceder al repositorio desde el enlace en el footer del sitio.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">¿Necesito crear una cuenta para usar la herramienta?</h2>
+            <p class="text-slate-600 leading-relaxed">
+              No. La herramienta es completamente gratuita y no requiere registro ni creación de cuenta. Simplemente cargue su archivo y comience a analizar sus datos inmediatamente.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">¿Dónde puedo obtener más ayuda?</h2>
+            <p class="text-slate-600 leading-relaxed mb-4">
+              Para más información, puede consultar:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-slate-600 ml-4">
+              <li><a href="documentacion.html" class="text-sky-700 hover:underline">Documentación Técnica</a> - Guía completa de la API y funcionalidades</li>
+              <li><a href="glosario.html" class="text-sky-700 hover:underline">Glosario Técnico</a> - Definiciones de términos utilizados</li>
+              <li><a href="https://github.com/Acamacho20027/ObservatorioDatosPublicos" target="_blank" rel="noopener noreferrer" class="text-sky-700 hover:underline">Repositorio GitHub</a> - Código fuente y reportes de problemas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-slate-900 text-white pt-24 pb-12 mt-auto">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center gap-3 mb-8">
+              <div
+                class="flex h-9 w-9 items-center justify-center rounded-md bg-sky-700 text-white"
+              >
+                <span class="material-symbols-outlined text-[20px]">analytics</span>
+              </div>
+              <span
+                class="text-xl md:text-2xl font-extrabold tracking-tight uppercase text-white"
+              >
+                OBSERVATORIO <span class="text-sky-400">CR</span>
+              </span>
+            </div>
+            <p class="text-slate-400 text-base leading-relaxed max-w-md">
+              Plataforma independiente dedicada al monitoreo técnico y la
+              visualización de datos gubernamentales en Costa Rica. Fomentamos
+              una cultura de transparencia y rendición de cuentas basada en
+              hechos.
+            </p>
+          </div>
+          <div>
+            <h5
+              class="font-bold text-sm mb-8 uppercase tracking-widest text-white/90"
+            >
+              RECURSOS
+            </h5>
+            <ul class="space-y-4 text-sm text-slate-400 font-medium">
+              <li><a class="hover:text-primary transition-colors" href="https://github.com/Acamacho20027/ObservatorioDatosPublicos" target="_blank" rel="noopener noreferrer">Repositorio GitHub</a></li>
+              <li><a class="hover:text-primary transition-colors" href="documentacion.html">API Documentation</a></li>
+              <li><a class="hover:text-primary transition-colors" href="datasets.html">Datasets Crudos</a></li>
+              <li><a class="hover:text-primary transition-colors" href="glosario.html">Glosario Técnico</a></li>
+              <li><a class="hover:text-primary transition-colors" href="preguntas.html">Preguntas Frecuentes</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5
+              class="font-bold text-sm mb-8 uppercase tracking-widest text-white/90"
+            >
+              LEGAL
+            </h5>
+            <ul class="space-y-4 text-sm text-slate-400 font-medium">
+              <li><a class="hover:text-sky-400 transition-colors" href="#">Términos de Uso</a></li>
+              <li><a class="hover:text-sky-400 transition-colors" href="#">Privacidad</a></li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] text-slate-500 uppercase tracking-[0.2em] font-bold"
+        >
+          <p>© 2026 Observatorio de Datos Públicos – Costa Rica</p>
+          <div class="flex gap-8">
+            <a
+              class="hover:text-white transition-colors"
+              href="https://www.linkedin.com/in/andr%C3%A9s-camacho-s%C3%A1nchez-672b7b286"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            <a
+              class="hover:text-white transition-colors"
+              href="https://acamacho20027.github.io/PerfilAndresCamachoSanchez/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Portfolio
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
