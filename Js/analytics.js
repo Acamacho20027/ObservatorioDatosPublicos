@@ -1,5 +1,4 @@
 // Google Analytics 4
-// Reemplazar 'G-XXXXXXXXXX' con tu ID de Google Analytics
 (function() {
   const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // TODO: Reemplazar con tu ID real
   
