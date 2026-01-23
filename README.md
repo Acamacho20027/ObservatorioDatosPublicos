@@ -33,6 +33,7 @@ Democratizar el acceso a la información técnica, permitiendo que tanto tomador
 - **Procesamiento local**: Todos los datos se procesan localmente en el navegador del usuario
 - **Sin almacenamiento**: Los datos no se envían a servidores externos
 - **Código abierto**: Metodologías de procesamiento y visualización auditables en GitHub
+- **Protección de credenciales**: El proyecto incluye `.gitignore` para prevenir que archivos sensibles (como `.env`, credenciales, etc.) se suban accidentalmente al repositorio
 
 ## Estructura del Proyecto
 
@@ -66,6 +67,7 @@ ObservatorioDatosPublicos/
 │   ├── index.html
 │   ├── metodologia.html
 │   └── preguntas.html
+├── .gitignore
 ├── netlify.toml
 ├── robots.txt
 └── sitemap.xml
@@ -114,7 +116,6 @@ El proyecto está optimizado para Netlify. Para desplegar:
 **Configuración adicional requerida:**
 - Actualiza las URLs en `sitemap.xml` con tu dominio de Netlify
 - Configura Google Analytics (ver sección "Configuración de Google Analytics" más abajo)
-- Crea y sube la imagen Open Graph (`assets/og-image.png`)
 - Verifica tu sitio en Google Search Console (ver sección "SEO y Visibilidad Web" más abajo)
 
 ## Documentación de la API
@@ -240,8 +241,8 @@ El proyecto incluye optimizaciones completas de SEO para mejorar la visibilidad 
 #### Meta Tags y SEO Básico
 - Meta descriptions únicas en todas las páginas
 - Meta keywords relevantes
-- Open Graph tags (Facebook, LinkedIn)
-- Twitter Cards
+- Open Graph tags (Facebook, LinkedIn) usando `favicon.svg`
+- Twitter Cards usando `favicon.svg`
 - Canonical URLs en cada página
 - Meta viewport (responsive)
 
@@ -269,29 +270,23 @@ El proyecto incluye optimizaciones completas de SEO para mejorar la visibilidad 
 #### 1. Actualizar URLs en sitemap.xml
 Edita `sitemap.xml` y reemplaza `https://observatorio-datos-publicos-cr.netlify.app` con tu URL real de Netlify.
 
-#### 2. Crear Imagen Open Graph
-Crea una imagen de 1200x630px para compartir en redes sociales:
-- Nombre: `og-image.png`
-- Ubicación: `assets/og-image.png`
-- Contenido sugerido: Logo del observatorio + texto "Observatorio de Datos Públicos - Costa Rica"
-
-#### 3. Configurar Google Search Console
+#### 2. Configurar Google Search Console
 1. Ve a [Google Search Console](https://search.google.com/search-console)
 2. Agrega tu propiedad (URL del sitio)
 3. Verifica la propiedad usando uno de los métodos disponibles
 4. Envía el sitemap: `https://tu-dominio.netlify.app/sitemap.xml`
 
-#### 4. Optimizar Imágenes
+#### 3. Optimizar Imágenes
 - Agrega `alt` text descriptivo a todas las imágenes
 - Considera usar formatos modernos (WebP) para mejor compresión
 - Optimiza el tamaño de las imágenes
 
-#### 5. Revisar Contenido
+#### 4. Revisar Contenido
 - Asegúrate de que todos los enlaces funcionen
 - Verifica que los textos sean descriptivos y relevantes
 - Revisa que las palabras clave estén presentes de forma natural
 
-#### 6. Testing
+#### 5. Testing
 - Usa [Google Rich Results Test](https://search.google.com/test/rich-results) para verificar structured data
 - Usa [PageSpeed Insights](https://pagespeed.web.dev/) para verificar performance
 - Usa [Mobile-Friendly Test](https://search.google.com/test/mobile-friendly) para verificar responsive
