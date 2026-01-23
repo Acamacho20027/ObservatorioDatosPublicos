@@ -358,6 +358,80 @@ Este proyecto está bajo una licencia de código abierto. Consulta el archivo LI
 
 Este proyecto está en desarrollo activo. Las funcionalidades principales están implementadas y funcionando. Se aceptan sugerencias y reportes de errores a través de los Issues de GitHub.
 
+## Bitácora de Errores de Origen
+
+Este documento registra de manera transparente los errores, limitaciones y correcciones identificadas en las fuentes de datos gubernamentales utilizadas por el Observatorio.
+
+### Propósito
+
+Esta bitácora tiene como objetivo:
+
+- Mantener un registro público y actualizado de problemas identificados en las fuentes de datos
+- Documentar las correcciones aplicadas y metodologías de mitigación
+- Informar a los usuarios sobre las limitaciones de los datos
+- Fomentar la mejora continua de la calidad de los datos públicos
+
+### Estado de los Errores
+
+- **Pendiente**: Error identificado, corrección en proceso
+- **En Revisión**: Corrección implementada, en fase de validación
+- **Resuelto**: Error corregido y validado
+
+### Registro de Errores
+
+#### Ejemplo: Datos Faltantes en Serie Temporal
+
+- **Fuente**: INEC - Censo 2022
+- **Fecha de identificación**: 2026-01-15
+- **Estado**: Pendiente
+- **Impacto**: Medio
+- **Descripción**: Se identificaron valores faltantes en la serie temporal de matrícula educativa para el período 2019-2020. Los datos correspondientes a algunas regiones educativas no están disponibles en la fuente oficial.
+- **Mitigación aplicada**: Se documenta la ausencia de datos y se indica claramente en las visualizaciones correspondientes. Los análisis se realizan únicamente con los datos disponibles.
+
+### Limitaciones Conocidas
+
+#### Retraso en Actualizaciones
+
+Algunas fuentes de datos gubernamentales tienen retrasos inherentes en sus actualizaciones. Los datos pueden reflejar información de períodos anteriores debido a los procesos de recolección y validación institucional.
+
+**Instituciones afectadas**: MEP, CCSS, MOPT
+
+#### Variabilidad en Formatos
+
+Las diferentes instituciones públicas utilizan formatos y estructuras de datos variadas, lo que requiere procesos de normalización que pueden introducir pequeñas discrepancias.
+
+**Impacto**: Bajo - Se aplican procesos de normalización automática
+
+#### Cobertura Geográfica
+
+Algunos indicadores pueden tener cobertura limitada a ciertas regiones o provincias, dependiendo de la disponibilidad de datos en las fuentes oficiales.
+
+**Áreas afectadas**: Regiones rurales, datos históricos anteriores a 2010
+
+### Correcciones Aplicadas
+
+#### Corrección: Normalización de Nombres de Provincias
+
+- **Fuente**: Múltiples instituciones
+- **Fecha de corrección**: 2026-01-10
+- **Estado**: Resuelto
+- **Descripción**: Se identificaron inconsistencias en los nombres de provincias entre diferentes fuentes de datos (ej: "San José" vs "San Jose"). Se implementó un proceso de normalización automática.
+- **Método**: Normalización automática mediante diccionario de equivalencias
+- **Validación**: Verificado en todos los datasets actuales
+
+### Proceso de Actualización
+
+Esta bitácora se actualiza periódicamente conforme:
+
+1. Se identifican nuevos errores durante el proceso de análisis
+2. Se resuelven problemas existentes
+3. Se descubren nuevas limitaciones en las fuentes de datos
+4. Se implementan mejoras en los procesos de normalización
+
+**Frecuencia de actualización**: Mensual o cuando se identifique un error crítico
+
+Para consultar la versión completa y actualizada, visite la [página de Bitácora en el sitio web](views/bitacora.html) o consulte esta sección en el README.
+
 ## Contacto
 
 Para preguntas, sugerencias o colaboraciones, puedes:

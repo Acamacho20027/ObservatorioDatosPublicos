@@ -23,16 +23,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Funcionalidad del enlace "Consultar bitácora de errores"
-  const links = document.querySelectorAll('a[href="#"]');
-  links.forEach((link) => {
-    if (link.textContent.includes("bitácora")) {
-      link.addEventListener("click", function (e) {
-        e.preventDefault();
-        alert(
-          "La bitácora de errores estará disponible próximamente en el repositorio de GitHub."
-        );
-      });
-    }
-  });
 });

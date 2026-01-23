@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Bitácora de Errores de Origen - Transparencia de Datos | Observatorio CR</title>
+    <meta name="title" content="Bitácora de Errores de Origen - Transparencia de Datos | Observatorio CR" />
+    <meta name="description" content="Registro de errores, limitaciones y correcciones identificadas en las fuentes de datos gubernamentales utilizadas por el Observatorio de Datos Públicos de Costa Rica." />
+    <meta name="keywords" content="bitácora errores, transparencia datos, limitaciones datos, correcciones datos, calidad datos, Costa Rica" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://observatorio-datos-publicos-cr.netlify.app/views/bitacora.html" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://observatorio-datos-publicos-cr.netlify.app/views/bitacora.html" />
+    <meta property="og:title" content="Bitácora de Errores de Origen - Observatorio de Datos Públicos CR" />
+    <meta property="og:description" content="Registro de errores, limitaciones y correcciones identificadas en las fuentes de datos gubernamentales." />
+    <meta property="og:image" content="https://observatorio-datos-publicos-cr.netlify.app/assets/favicon.svg" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Bitácora de Errores de Origen - Observatorio de Datos Públicos CR" />
+    <meta name="twitter:description" content="Registro de errores, limitaciones y correcciones identificadas en las fuentes de datos gubernamentales." />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    
+    <!-- Google Analytics -->
+    <script src="/Js/analytics.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="/Js/tailwind-theme.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="/Styles/styles.css" />
+  </head>
+
+  <body class="bg-slate-50 text-slate-900 antialiased">
+    <header
+      role="banner"
+      class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60"
+    >
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="text-sky-700">
+              <span class="material-symbols-outlined text-3xl">analytics</span>
+            </div>
+            <a href="index.html" class="text-lg font-bold tracking-tight text-slate-900 uppercase">
+              Observatorio <span class="text-sky-700">CR</span>
+            </a>
+            <a
+              href="index.html"
+              class="md:hidden text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors ml-4"
+              >Inicio</a
+            >
+          </div>
+          <nav class="hidden md:flex items-center gap-8">
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="index.html"
+            >
+              Inicio
+            </a>
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="analisis.html"
+            >
+              Análisis
+            </a>
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="metodologia.html"
+            >
+              Metodología
+            </a>
+            <a
+              class="text-sm font-semibold text-slate-600 hover:text-sky-700 transition-colors"
+              href="index.html#sobre"
+            >
+              Sobre el Proyecto
+            </a>
+            <a
+              class="bg-sky-700 hover:bg-sky-800 text-white px-6 py-2 rounded-lg text-sm font-bold transition-all shadow-sm"
+              href="exploracion.html"
+            >
+              Explorar análisis
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="section-spacing">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <!-- Page Heading -->
+        <div class="mb-16 max-w-3xl">
+          <p class="text-sky-700 text-sm font-bold uppercase tracking-widest mb-4">
+            Transparencia y Rendición de Cuentas
+          </p>
+          <h1 class="text-4xl md:text-5xl font-black leading-tight tracking-tight text-slate-900 mb-6">
+            Bitácora de Errores de Origen
+          </h1>
+          <p class="text-lg text-slate-600 leading-relaxed mb-6">
+            Registro público de errores, limitaciones y correcciones identificadas en las fuentes de datos gubernamentales utilizadas por el Observatorio. Este documento refleja nuestro compromiso con la transparencia y la calidad de los datos.
+          </p>
+        </div>
+
+        <!-- Información General -->
+        <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8 mb-12">
+          <div class="flex gap-3 mb-6">
+            <span class="material-symbols-outlined text-sky-700 text-2xl flex items-center" style="line-height: 1.2;">info</span>
+            <h2 class="text-2xl font-bold text-slate-900 m-0 flex items-center" style="line-height: 1.2;">Sobre esta Bitácora</h2>
+          </div>
+          <div class="space-y-4 text-slate-700 leading-relaxed">
+            <p>
+              Esta bitácora documenta de manera transparente los errores, inconsistencias y limitaciones encontradas en las fuentes de datos oficiales que utilizamos. Nuestro objetivo es:
+            </p>
+            <ul class="list-disc list-inside space-y-2 ml-4">
+              <li>Mantener un registro público y actualizado de problemas identificados</li>
+              <li>Documentar las correcciones aplicadas y metodologías de mitigación</li>
+              <li>Informar a los usuarios sobre las limitaciones de los datos</li>
+              <li>Fomentar la mejora continua de la calidad de los datos públicos</li>
+            </ul>
+            <p class="pt-4 border-t border-slate-200">
+              <strong>Última actualización:</strong> Esta bitácora se actualiza periódicamente conforme identificamos nuevos errores o se resuelven problemas existentes. Para la versión más reciente, consulte el <a href="https://github.com/Acamacho20027/ObservatorioDatosPublicos/blob/master/README.md" target="_blank" rel="noopener noreferrer" class="text-sky-700 hover:underline font-medium">README en GitHub</a>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Errores Registrados -->
+        <div class="space-y-8">
+          <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+            <div class="flex gap-3 mb-6">
+              <span class="material-symbols-outlined text-amber-600 text-2xl flex items-center" style="line-height: 1.2;">warning</span>
+              <h2 class="text-2xl font-bold text-slate-900 m-0 flex items-center" style="line-height: 1.2;">Errores Identificados</h2>
+            </div>
+            
+            <div class="space-y-6">
+              <!-- Ejemplo de entrada de error -->
+              <div class="border-l-4 border-amber-500 bg-amber-50/50 p-6 rounded-r-lg">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="font-bold text-slate-900 mb-1">Ejemplo: Datos Faltantes en Serie Temporal</h3>
+                    <p class="text-sm text-slate-600">Fuente: INEC - Censo 2022</p>
+                  </div>
+                  <span class="px-3 py-1 bg-amber-200 text-amber-900 text-xs font-bold rounded-full">Pendiente</span>
+                </div>
+                <p class="text-slate-700 mb-3">
+                  Se identificaron valores faltantes en la serie temporal de matrícula educativa para el período 2019-2020. Los datos correspondientes a algunas regiones educativas no están disponibles en la fuente oficial.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <strong class="text-slate-900">Fecha de identificación:</strong>
+                    <span class="text-slate-600 ml-2">2026-01-15</span>
+                  </div>
+                  <div>
+                    <strong class="text-slate-900">Impacto:</strong>
+                    <span class="text-slate-600 ml-2">Medio</span>
+                  </div>
+                </div>
+                <div class="mt-4 pt-4 border-t border-amber-200">
+                  <strong class="text-slate-900 text-sm">Mitigación aplicada:</strong>
+                  <p class="text-slate-700 text-sm mt-1">
+                    Se documenta la ausencia de datos y se indica claramente en las visualizaciones correspondientes. Los análisis se realizan únicamente con los datos disponibles.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Mensaje cuando no hay errores adicionales -->
+              <div class="text-center py-12 text-slate-500">
+                <span class="material-symbols-outlined text-5xl mb-4 block">check_circle</span>
+                <p class="text-lg font-medium">No hay errores adicionales registrados en este momento.</p>
+                <p class="text-sm mt-2">Los errores se documentan conforme se identifican durante el proceso de análisis.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Limitaciones Conocidas -->
+          <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+            <div class="flex gap-3 mb-6">
+              <span class="material-symbols-outlined text-blue-600 text-2xl flex items-center" style="line-height: 1.2;">info</span>
+              <h2 class="text-2xl font-bold text-slate-900 m-0 flex items-center" style="line-height: 1.2;">Limitaciones Conocidas</h2>
+            </div>
+            
+            <div class="space-y-4 text-slate-700 leading-relaxed">
+              <div class="border-l-4 border-blue-500 pl-6">
+                <h3 class="font-bold text-slate-900 mb-2">Retraso en Actualizaciones</h3>
+                <p>
+                  Algunas fuentes de datos gubernamentales tienen retrasos inherentes en sus actualizaciones. Los datos pueden reflejar información de períodos anteriores debido a los procesos de recolección y validación institucional.
+                </p>
+              </div>
+              
+              <div class="border-l-4 border-blue-500 pl-6">
+                <h3 class="font-bold text-slate-900 mb-2">Variabilidad en Formatos</h3>
+                <p>
+                  Las diferentes instituciones públicas utilizan formatos y estructuras de datos variadas, lo que requiere procesos de normalización que pueden introducir pequeñas discrepancias.
+                </p>
+              </div>
+              
+              <div class="border-l-4 border-blue-500 pl-6">
+                <h3 class="font-bold text-slate-900 mb-2">Cobertura Geográfica</h3>
+                <p>
+                  Algunos indicadores pueden tener cobertura limitada a ciertas regiones o provincias, dependiendo de la disponibilidad de datos en las fuentes oficiales.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Correcciones Aplicadas -->
+          <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-8">
+            <div class="flex gap-3 mb-6">
+              <span class="material-symbols-outlined text-emerald-600 text-2xl flex items-center" style="line-height: 1.2;">verified</span>
+              <h2 class="text-2xl font-bold text-slate-900 m-0 flex items-center" style="line-height: 1.2;">Correcciones Aplicadas</h2>
+            </div>
+            
+            <div class="space-y-6">
+              <!-- Ejemplo de corrección -->
+              <div class="border-l-4 border-emerald-500 bg-emerald-50/50 p-6 rounded-r-lg">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="font-bold text-slate-900 mb-1">Corrección: Normalización de Nombres de Provincias</h3>
+                    <p class="text-sm text-slate-600">Fuente: Múltiples instituciones</p>
+                  </div>
+                  <span class="px-3 py-1 bg-emerald-200 text-emerald-900 text-xs font-bold rounded-full">Resuelto</span>
+                </div>
+                <p class="text-slate-700 mb-3">
+                  Se identificaron inconsistencias en los nombres de provincias entre diferentes fuentes de datos (ej: "San José" vs "San Jose"). Se implementó un proceso de normalización automática.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <strong class="text-slate-900">Fecha de corrección:</strong>
+                    <span class="text-slate-600 ml-2">2026-01-10</span>
+                  </div>
+                  <div>
+                    <strong class="text-slate-900">Método:</strong>
+                    <span class="text-slate-600 ml-2">Normalización automática</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center py-8 text-slate-500">
+                <p class="text-sm">Las correcciones se documentan conforme se implementan y validan.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enlace a GitHub -->
+        <div class="mt-12 bg-slate-900 text-white rounded-xl p-8 text-center">
+          <span class="material-symbols-outlined text-4xl mb-4 block">code</span>
+          <h3 class="text-xl font-bold mb-2">Versión Completa en GitHub</h3>
+          <p class="text-slate-300 mb-6 max-w-2xl mx-auto">
+            Para consultar el registro completo y actualizado de errores, limitaciones y correcciones, visite la sección de Bitácora de Errores en el README de nuestro repositorio de GitHub.
+          </p>
+          <a
+            href="https://github.com/Acamacho20027/ObservatorioDatosPublicos/blob/master/README.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-sky-700 hover:bg-sky-800 text-white px-8 py-3 rounded-lg font-bold transition-all shadow-lg"
+          >
+            <span class="material-symbols-outlined">open_in_new</span>
+            Ver README en GitHub
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-slate-900 text-white pt-24 pb-12">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div class="md:col-span-2">
+            <div class="flex items-center gap-3 mb-6">
+              <div
+                class="flex h-9 w-9 items-center justify-center rounded-md bg-sky-700 text-white"
+              >
+                <span class="material-symbols-outlined">analytics</span>
+              </div>
+              <div
+                class="text-xl md:text-2xl font-extrabold tracking-tight uppercase text-white"
+              >
+                Observatorio <span class="text-sky-400">CR</span>
+              </div>
+            </div>
+            <p class="text-slate-400 text-base leading-relaxed max-w-md">
+              Plataforma independiente dedicada al monitoreo técnico y la visualización de datos gubernamentales en Costa Rica. Fomentamos una cultura de transparencia y rendición de cuentas basada en hechos.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-sm mb-8 uppercase tracking-widest text-white/90">
+              RECURSOS
+            </h3>
+            <ul class="space-y-4">
+              <li><a class="hover:text-primary transition-colors" href="https://github.com/Acamacho20027/ObservatorioDatosPublicos" target="_blank" rel="noopener noreferrer">Repositorio GitHub</a></li>
+              <li><a class="hover:text-primary transition-colors" href="documentacion.html">API Documentation</a></li>
+              <li><a class="hover:text-primary transition-colors" href="datasets.html">Datasets Crudos</a></li>
+              <li><a class="hover:text-primary transition-colors" href="glosario.html">Glosario Técnico</a></li>
+              <li><a class="hover:text-primary transition-colors" href="preguntas.html">Preguntas Frecuentes</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-sm mb-8 uppercase tracking-widest text-white/90">
+              LEGAL
+            </h3>
+            <ul class="space-y-4">
+              <li><a class="hover:text-primary transition-colors" href="#">Términos de Uso</a></li>
+              <li><a class="hover:text-primary transition-colors" href="#">Privacidad</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] text-slate-500 uppercase tracking-[0.2em] font-bold"
+        >
+          <p>Copyright 2026 Observatorio de Datos Públicos – Costa Rica</p>
+          <div class="flex items-center gap-6">
+            <a
+              href="https://www.linkedin.com/in/andr%C3%A9s-camacho-s%C3%A1nchez-672b7b286"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-sky-400 transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://acamacho20027.github.io/PerfilAndresCamachoSanchez/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-sky-400 transition-colors"
+            >
+              Portfolio
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
