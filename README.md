@@ -113,6 +113,8 @@ El proyecto está optimizado para Netlify. Para desplegar:
 2. Netlify detectará automáticamente la configuración en `netlify.toml`
 3. El sitio se desplegará automáticamente en cada push
 
+**Nota técnica:** El proyecto utiliza rutas absolutas (que comienzan con `/`) en lugar de rutas relativas para garantizar compatibilidad con el despliegue en Netlify. Esto asegura que los recursos (CSS, JavaScript, imágenes) se carguen correctamente independientemente de la estructura de directorios.
+
 **Configuración adicional requerida:**
 - Actualiza las URLs en `sitemap.xml` con tu dominio de Netlify
 - Configura Google Analytics (ver sección "Configuración de Google Analytics" más abajo)
